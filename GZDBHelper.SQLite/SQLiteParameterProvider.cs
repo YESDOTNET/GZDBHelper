@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
-#if NET40 || NET45 || NET46
-using System.Data.SqlClient;
-#else
-using Microsoft.Data.SqlClient;
-#endif
-namespace GZDBHelper
+namespace GZDBHelper.MSSQL
 {
     /// <summary>
     /// 查询参数生成基类
     /// </summary>
-    public class SqlParameterProvider : IDbParms
+    public class SQLiteParameterProvider : IDbParms
     {
         /// <summary>
         /// 参数集合
@@ -24,7 +20,7 @@ namespace GZDBHelper
         /// <summary>
         /// 构造函数
         /// </summary>
-        public SqlParameterProvider()
+        public SQLiteParameterProvider()
         {
             Params = new List<DbParameter>();
         }
@@ -96,7 +92,7 @@ namespace GZDBHelper
         /// <param name="value"></param>
         public void AddParameter(string parameterName, object value)
         {
-            SqlParameter parm = new SqlParameter(parameterName, value);
+            SQLiteParameter parm = new SQLiteParameter(parameterName, value);
             Params.Add(parm);
         }
         /// <summary>
@@ -107,7 +103,7 @@ namespace GZDBHelper
         /// <param name="value"></param>
         public void AddParameter(string parameterName, SqlDbType dbType, object value)
         {
-            SqlParameter parm = new SqlParameter(parameterName, dbType);
+            SQLiteParameter parm = new SQLiteParameter(parameterName, dbType);
             parm.Value = value;
             Params.Add(parm);
         }
@@ -118,9 +114,9 @@ namespace GZDBHelper
         /// <param name="dbType"></param>
         /// <param name="size"></param>
         /// <param name="value"></param>
-        public void AddParameter(string parameterName, SqlDbType dbType, int size, object value)
+        public void AddParameter(string parameterName, DbType dbType, int size, object value)
         {
-            SqlParameter parm = new SqlParameter(parameterName, dbType, size);
+            SQLiteParameter parm = new SQLiteParameter(parameterName, dbType, size);
             parm.Value = value;
             Params.Add(parm);
         }
@@ -132,9 +128,9 @@ namespace GZDBHelper
         /// <param name="size"></param>
         /// <param name="value"></param>
         /// <param name="direction"></param>
-        public void AddParameter(string parameterName, SqlDbType dbType, int size, object value, ParameterDirection direction)
+        public void AddParameter(string parameterName, DbType dbType, int size, object value, ParameterDirection direction)
         {
-            SqlParameter parm = new SqlParameter(parameterName, dbType, size);
+            SQLiteParameter parm = new SQLiteParameter(parameterName, dbType, size);
             parm.Value = value;
             parm.Direction = direction;
             Params.Add(parm);
@@ -147,9 +143,9 @@ namespace GZDBHelper
         /// <param name="size"></param>
         /// <param name="value"></param>
         /// <param name="sourceColumn"></param>
-        public void AddParameter(string parameterName, SqlDbType dbType, int size, object value, string sourceColumn)
+        public void AddParameter(string parameterName, DbType dbType, int size, object value, string sourceColumn)
         {
-            SqlParameter parm = new SqlParameter(parameterName, dbType, size, sourceColumn);
+            SQLiteParameter parm = new SQLiteParameter(parameterName, dbType, size, sourceColumn);
             parm.Value = value;
             Params.Add(parm);
         }

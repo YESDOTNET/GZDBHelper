@@ -1,66 +1,44 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>GZDBHelper.MSSQL</name>
+        <name>GZDBHelper.SQLite</name>
     </assembly>
     <members>
-        <member name="T:GZDBHelper.Extensions">
-            <summary>
-            扩展
-            </summary>
-        </member>
-        <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Int32)">
-            <summary>
-            SQL Server 批量插入数据
-            </summary>
-            <param name="current"></param>
-            <param name="table"></param>
-            <param name="batchSize"></param>
-        </member>
-        <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Collections.Generic.List{System.Data.SqlClient.SqlBulkCopyColumnMapping},System.Int32)">
-            <summary>
-            SQL Server 批量插入数据
-            </summary>
-            <param name="current"></param>
-            <param name="table"></param>
-            <param name="ColumnMappings"></param>
-            <param name="batchSize"></param>
-        </member>
-        <member name="T:GZDBHelper.SqlParameterProvider">
+        <member name="T:GZDBHelper.MSSQL.SQLiteParameterProvider">
             <summary>
             查询参数生成基类
             </summary>
         </member>
-        <member name="F:GZDBHelper.SqlParameterProvider.Params">
+        <member name="F:GZDBHelper.MSSQL.SQLiteParameterProvider.Params">
             <summary>
             参数集合
             </summary>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.#ctor">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.#ctor">
             <summary>
             构造函数
             </summary>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.GetParms">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.GetParms">
             <summary>
             获得参数集合
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.SetParmValue(System.String,System.Object)">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.SetParmValue(System.String,System.Object)">
             <summary>
             更改查询参数的值
             </summary>
             <param name="ParamName">要更改的查询参数名称</param>
             <param name="Value">新的参数值</param>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.GetParmArrary">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.GetParmArrary">
             <summary>
             返回键值对参数 键：参数名，值：参数值
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.GetParamValue``1(System.String)">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.GetParamValue``1(System.String)">
             <summary>
             获取参数值
             </summary>
@@ -68,14 +46,14 @@
             <param name="ParameterName">参数名</param>
             <returns></returns>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,System.Object)">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.AddParameter(System.String,System.Object)">
             <summary>
             添加参数
             </summary>
             <param name="parameterName"></param>
             <param name="value"></param>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Object)">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Object)">
             <summary>
             添加参数
             </summary>
@@ -83,7 +61,7 @@
             <param name="dbType"></param>
             <param name="value"></param>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Int32,System.Object)">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.AddParameter(System.String,System.Data.DbType,System.Int32,System.Object)">
             <summary>
             添加参数
             </summary>
@@ -92,7 +70,7 @@
             <param name="size"></param>
             <param name="value"></param>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Int32,System.Object,System.Data.ParameterDirection)">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.AddParameter(System.String,System.Data.DbType,System.Int32,System.Object,System.Data.ParameterDirection)">
             <summary>
             添加参数
             </summary>
@@ -102,7 +80,7 @@
             <param name="value"></param>
             <param name="direction"></param>
         </member>
-        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Int32,System.Object,System.String)">
+        <member name="M:GZDBHelper.MSSQL.SQLiteParameterProvider.AddParameter(System.String,System.Data.DbType,System.Int32,System.Object,System.String)">
             <summary>
             添加参数
             </summary>

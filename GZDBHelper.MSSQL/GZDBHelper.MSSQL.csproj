@@ -8,6 +8,7 @@
 	<PropertyGroup>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Deterministic>false</Deterministic>
+		<RootNamespace>GZDBHelper</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\GZDBHelper\GZDBHelper.csproj" />

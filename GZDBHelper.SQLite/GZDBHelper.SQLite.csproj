@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp3.1;netstandard2.1;net5.0;net40;net45;net46</TargetFrameworks>
+	</PropertyGroup>
+	<PropertyGroup>
+		<DocumentationFile>GZDBHelper.SQLite.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<Deterministic>false</Deterministic>
+		<RootNamespace>GZDBHelper</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.114.2" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\GZDBHelper\GZDBHelper.csproj" />
+	</ItemGroup>
+</Project>
