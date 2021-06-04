@@ -36,6 +36,16 @@
             </summary>
             <param name="TableName">数据源列名</param>
         </member>
+        <member name="P:GZDBHelper.CommandDatabase.Conn">
+            <summary>
+            数据库连接字符串
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.CommandDatabase.Trans">
+            <summary>
+            事务
+            </summary>
+        </member>
         <member name="P:GZDBHelper.CommandDatabase.CommandTimeout">
             <summary>
             命令i超时时间
@@ -224,6 +234,16 @@
         <member name="T:GZDBHelper.ConnectionDatabase">
             <summary>
             数据库操作对象
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.GetDbConnection">
+            <summary>
+            获得数据库连接字符串
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.GetDbTransaction">
+            <summary>
+            获得事务
             </summary>
         </member>
         <member name="P:GZDBHelper.ConnectionDatabase.CommandTimeout">
@@ -671,6 +691,23 @@
         <member name="T:GZDBHelper.IDatabase">
             <summary>
             数据库操作接口
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.GetDbConnection">
+            <summary>
+            获得数据库连接对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.GetDbTransaction">
+            <summary>
+            获得事务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GZDBHelper.IDatabase.CommandTimeout">
+            <summary>
+            命令超时时间设置，单位毫秒
             </summary>
         </member>
         <member name="M:GZDBHelper.IDatabase.ExecuteNonQuery(System.String,GZDBHelper.IDbParms)">

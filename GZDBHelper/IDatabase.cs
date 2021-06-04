@@ -10,6 +10,19 @@ namespace GZDBHelper
     /// </summary>
     public interface IDatabase
     {
+        /// <summary>
+        /// 获得数据库连接对象
+        /// </summary>
+        /// <returns></returns>
+        DbConnection GetDbConnection();
+        /// <summary>
+        /// 获得事务
+        /// </summary>
+        /// <returns></returns>
+        DbTransaction GetDbTransaction();
+        /// <summary>
+        /// 命令超时时间设置，单位毫秒
+        /// </summary>
         int CommandTimeout { get; set; }
 
 

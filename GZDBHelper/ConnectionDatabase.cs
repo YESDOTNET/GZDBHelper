@@ -15,6 +15,21 @@ namespace GZDBHelper
 
         private int _commandtimeout = 30;
         /// <summary>
+        /// 获得数据库连接字符串
+        /// </summary>
+        public DbConnection GetDbConnection()
+        {
+            return this.CreateConnection();
+        }
+        /// <summary>
+        /// 获得事务
+        /// </summary>
+        public DbTransaction GetDbTransaction()
+        {
+            return null;
+        }
+
+        /// <summary>
         /// 执行超时
         /// </summary>
         public int CommandTimeout

@@ -11,12 +11,29 @@ namespace GZDBHelper
     internal class CommandDatabase : IDatabase
     {
         //private DbCommand Command;
-        private DbConnection Conn;
-        private DbTransaction Trans;
+        /// <summary>
+        /// 数据库连接字符串
+        /// </summary>
+        private DbConnection Conn { get; set; }
+        /// <summary>
+        /// 事务
+        /// </summary>
+        private DbTransaction Trans { get; set; }
 
         private readonly DbProviderFactory _ProviderFactory;
 
         private int _commandtimeout = 30;
+
+        public DbConnection GetDbConnection()
+        {
+            return Conn;
+        }
+
+        public DbTransaction GetDbTransaction()
+        {
+            return Trans;
+        }
+
         /// <summary>
         /// 命令i超时时间
         /// </summary>
