@@ -1,0 +1,944 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GZDBHelper</name>
+    </assembly>
+    <members>
+        <member name="T:GZDBHelper.Attributes.SourceColumnNameAttribute">
+            <summary>
+            数据源映射
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.Attributes.SourceColumnNameAttribute.SourceColumnName">
+            <summary>
+            数据源列名
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.Attributes.SourceColumnNameAttribute.#ctor(System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="ColumnName">数据源列名</param>
+        </member>
+        <member name="T:GZDBHelper.Attributes.SourceTableNameAttribute">
+            <summary>
+            数据表映射
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.Attributes.SourceTableNameAttribute.SourceTableName">
+            <summary>
+            数据库对应表名
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.Attributes.SourceTableNameAttribute.#ctor(System.String)">
+            <summary>
+            构造器
+            </summary>
+            <param name="TableName">数据源列名</param>
+        </member>
+        <member name="P:GZDBHelper.CommandDatabase.CommandTimeout">
+            <summary>
+            命令i超时时间
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.#ctor(System.Data.Common.DbProviderFactory,System.Data.Common.DbConnection,System.Int32,System.Action{System.Data.Common.DbDataAdapter})">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.#ctor(System.Data.Common.DbProviderFactory,System.Data.Common.DbTransaction,System.Int32,System.Action{System.Data.Common.DbDataAdapter})">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.ExecuteNonQuery(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，并返回受影响行数
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.ExecuteDataReader``1(System.String,GZDBHelper.IDbParms,System.Func{System.Data.Common.DbDataReader,``0})">
+            <summary>
+            执行SQL语句，并返回指定对象集合
+            </summary>
+            <typeparam name="T">要返回的对象类型</typeparam>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <param name="action">转换委托</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.ExecuteDataReader(System.String,GZDBHelper.IDbParms,System.Action{System.Data.Common.DbDataReader})">
+            <summary>
+            执行SQL语句，委托处理结果
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <param name="action">处理委托</param>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.ExecuteScalar``1(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，返回第一行第一列
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.GetTable(System.String,System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，返回DataTable结构
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="TableName">表名</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.GetDataSet(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，返回DataSet结构
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.HasRow(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，判断是否有返回数据
+            </summary>
+            <param name="sql"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.ExecuteNonQuerySP(System.String,GZDBHelper.IDbParms)">
+            <summary>
+             执行存储过程，并返回受影响行数
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.ExecuteDataReaderSP``1(System.String,GZDBHelper.IDbParms,System.Func{System.Data.Common.DbDataReader,``0})">
+            <summary>
+            执行存储过程，并返回指定对象集合
+            </summary>
+            <typeparam name="T">要返回的对象类型</typeparam>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <param name="action">转换委托</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.ExecuteDataReaderSP(System.String,GZDBHelper.IDbParms,System.Action{System.Data.Common.DbDataReader})">
+            <summary>
+            执行存储过程，委托处理结果
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.ExecuteScalarSP``1(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，返回第一行第一列
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.GetTableSP(System.String,System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，返回DataTable结构
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="TableName">表名</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.GetDataSetSP(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，返回DataSet结构
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.HasRowSP(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，判断是否有返回数据
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.Update(System.Data.DataTable,System.String)">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.Update(System.Data.DataTable,System.String,System.Boolean)">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <param name="SetAllValues">更新所有值，True时更新所有字段，False时只更新有改变的字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.Update(System.Data.DataTable,System.String,System.Boolean,System.Data.ConflictOption)">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <param name="SetAllValues">更新所有值，True时更新所有字段，False时只更新有改变的字段</param>
+            <param name="ConflictOption">指定将如何检测和解决对数据源的相互冲突的更改。</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.Update(System.Data.DataTable,System.String,System.Boolean,System.Data.ConflictOption,System.Action{System.Data.Common.DbDataAdapter})">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <param name="SetAllValues">更新所有值，True时更新所有字段，False时只更新有改变的字段</param>
+            <param name="ConflictOption">指定将如何检测和解决对数据源的相互冲突的更改。</param>
+            <param name="DbDataAdapterHelper"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.ExecuteTransaction(System.Action{GZDBHelper.IDatabase})">
+            <summary>
+            在事物内执行
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.CommandDatabase.Excute(System.Action{GZDBHelper.IDatabase})">
+            <summary>
+            外部在同一链接下执行，如果要获取输出的参数值，用此方法执行，配合GetParamValue执行，或者多次提交
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="T:GZDBHelper.ConnectionDatabase">
+            <summary>
+            数据库操作对象
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.ConnectionDatabase.CommandTimeout">
+            <summary>
+            执行超时
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.#ctor(System.String,System.String,System.Action{System.Data.Common.DbDataAdapter})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="connectionString">数据库连接字符串</param>
+            <param name="providerName">指定提供程序名称的 System.Data.Common.DbProviderFactory 的一个实例</param>
+            /// <param name="cAdapter"></param>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.CreateConnection">
+            <summary>
+            创建数据库连接并打开
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.GetCommandDataBase(System.Data.Common.DbConnection)">
+            <summary>
+            获得数据库操作命令对象
+            </summary>
+            <param name="cmd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.GetCommandDataBase(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
+            <summary>
+            获得数据库操作命令对象
+            </summary>
+            <param name="cmd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteNonQuery(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，并返回受影响行数
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteDataReader``1(System.String,GZDBHelper.IDbParms,System.Func{System.Data.Common.DbDataReader,``0})">
+            <summary>
+            执行SQL语句，并返回指定对象集合
+            </summary>
+            <typeparam name="T">要返回的对象类型</typeparam>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <param name="action">转换委托</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteDataReader(System.String,GZDBHelper.IDbParms,System.Action{System.Data.Common.DbDataReader})">
+            <summary>
+            执行SQL语句，委托处理结果
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <param name="action">处理委托</param>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.GetTable(System.String,System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，返回DataTable结构
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="TableName">表名</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.GetDataSet(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，返回DataSet结构
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteScalar``1(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，返回第一行第一列
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.HasRow(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，判断是否有返回数据
+            </summary>
+            <param name="sql"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteNonQuerySP(System.String,GZDBHelper.IDbParms)">
+            <summary>
+             执行存储过程，并返回受影响行数
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteDataReaderSP``1(System.String,GZDBHelper.IDbParms,System.Func{System.Data.Common.DbDataReader,``0})">
+            <summary>
+            执行存储过程，并返回指定对象集合
+            </summary>
+            <typeparam name="T">要返回的对象类型</typeparam>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <param name="action">转换委托</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteDataReaderSP(System.String,GZDBHelper.IDbParms,System.Action{System.Data.Common.DbDataReader})">
+            <summary>
+            执行存储过程，委托处理结果
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.GetTableSP(System.String,System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，返回DataTable结构
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="TableName">表名</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.GetDataSetSP(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，返回DataSet结构
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteScalarSP``1(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，返回第一行第一列
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.HasRowSP(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，判断是否有返回数据
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.Excute(System.Action{GZDBHelper.IDatabase})">
+            <summary>
+            外部在同一链接下执行，如果要获取输出的参数值，用此方法执行，配合GetParamValue执行，或者多次提交
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.Update(System.Data.DataTable,System.String)">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.Update(System.Data.DataTable,System.String,System.Boolean)">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <param name="SetAllValues">更新所有值，True时更新所有字段，False时只更新有改变的字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.Update(System.Data.DataTable,System.String,System.Boolean,System.Data.ConflictOption)">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <param name="SetAllValues">更新所有值，True时更新所有字段，False时只更新有改变的字段</param>
+            <param name="ConflictOption">指定将如何检测和解决对数据源的相互冲突的更改。</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.Insert``1(``0[])">
+            <summary>
+            更具模型提交添加
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.Update``1(``0[])">
+            <summary>
+            根据模型提交更新
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.Delete``1(``0[])">
+            <summary>
+            根据模型删除操作
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteTransaction(System.Func{GZDBHelper.IDatabase,System.Boolean})">
+            <summary>
+            在事物内执行
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteTransaction(System.Action{GZDBHelper.IDatabase})">
+            <summary>
+            在事物内执行
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.ToString">
+            <summary>
+            重载方法，返回链接字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GZDBHelper.ConnectionStrings">
+            <summary>
+            数据库链接字符串生成类
+            </summary>
+        </member>
+        <member name="T:GZDBHelper.ConnectionStrings.ProviderNames">
+            <summary>
+            参考Provider名称
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForAccess">
+            <summary>
+            Access ProviderName
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForSqlite">
+            <summary>
+            Sqlite ProviderName
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForOracle">
+            <summary>
+            Oracle ProviderName
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMSSql">
+            <summary>
+            MSSql ProviderName
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMySql">
+            <summary>
+            MySQL ProviderName
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.ConnectionStrings.BuildMSSQLConnectionString(System.String,System.String,System.String,System.String)">
+            <summary>
+            生成MSSQL链接字符串  Server = {0};Database = {1};User ID = {2};Password = {3};Trusted_Connection = False
+            </summary>
+            <param name="Server">服务器地址</param>
+            <param name="Database">数据库名</param>
+            <param name="UserID">登陆名</param>
+            <param name="Password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionStrings.BuildMySQLConnectionString(System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            生成MySQL连接字符串 data source={0};port={1};uid={2};pwd={3}; database={4};
+            </summary>
+            <param name="Server"></param>
+            <param name="Port"></param>
+            <param name="Database"></param>
+            <param name="UserID"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionStrings.BuildOracleConnectionString(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            生成Oracle链接字符串
+            </summary>
+            <param name="Host">服务器地址</param>
+            <param name="Port">端口号</param>
+            <param name="DataBaseName">数据库名</param>
+            <param name="UsreID">用户名</param>
+            <param name="Password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionStrings.BuildSqliteConnectionString(System.String,System.String)">
+            <summary>
+            生成Sqlite链接字符串
+            </summary>
+            <param name="DataSource">数据库文件路径</param>
+            <param name="Password">打开密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionStrings.BuildSqliteConnectionString(System.String)">
+            <summary>
+            生成Sqlite链接字符串
+            </summary>
+            <param name="DataSource">数据库文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionStrings.BuildAccessConnectionStringUseProvider(System.String,System.String)">
+            <summary>
+            生成Access链接字符串
+            </summary>
+            <param name="Provider"></param>
+            <param name="DataSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionStrings.BuildAccessConnectionStringUseProvider(System.String,System.String,System.String,System.String)">
+            <summary>
+            生成Access链接字符串
+            </summary>
+            <param name="Provider"></param>
+            <param name="DataSource"></param>
+            <param name="UserID"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionStrings.BuildAccessConnectionString(System.String)">
+            <summary>
+            生成Access链接字符串 Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};
+            </summary>
+            <param name="DataSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConnectionStrings.BuildAccessConnectionString(System.String,System.String,System.String)">
+            <summary>
+            生成Access链接字符串 Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};
+            </summary>
+            <param name="DataSource"></param>
+            <param name="UserID"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConvertTools.ConvertToDataTable``1(``0[])">
+            <summary>
+            实体类转换成DataTable
+            </summary>
+            <param name="modelList">实体类列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ConvertTools.CreateData(System.Type)">
+            <summary>
+            根据实体类得到表结构
+            </summary>
+            <param name="model">实体类</param>
+            <returns></returns>
+        </member>
+        <member name="T:GZDBHelper.DatabaseFactory">
+            <summary>
+            数据库操作对象生成工厂
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.DatabaseFactory.CreateDatabase(System.String,System.String,System.Action{System.Data.Common.DbDataAdapter})">
+            <summary>
+            创建数据库操作对象
+            </summary>
+            <param name="connectionString"></param>
+            <param name="providerName"></param>
+            <param name="CustomerDbDataAdapter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.DatabaseFactory.Validate(System.String,System.String)">
+            <summary>
+            验证链接字符串是否正确
+            </summary>
+            <param name="connectionString"></param>
+            <param name="providerName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GZDBHelper.DbDataReaderExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.DbDataReaderExtensions.ToObject``1(System.Data.Common.DbDataReader)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="render"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GZDBHelper.DbDataReaderExtensions.CheckType(System.Object,System.Type)" -->
+        <member name="T:GZDBHelper.DbParameterBase">
+            <summary>
+            查询参数生成基类
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.DbParameterBase.Params">
+            <summary>
+            参数集合
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.DbParameterBase.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.DbParameterBase.AddParameter(System.Data.Common.DbParameter)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="dp"></param>
+        </member>
+        <member name="M:GZDBHelper.DbParameterBase.GetParms">
+            <summary>
+            获得参数集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.DbParameterBase.SetParmValue(System.String,System.Object)">
+            <summary>
+            更改查询参数的值
+            </summary>
+            <param name="ParamName">要更改的查询参数名称</param>
+            <param name="Value">新的参数值</param>
+        </member>
+        <member name="M:GZDBHelper.DbParameterBase.GetParmArrary">
+            <summary>
+            返回键值对参数 键：参数名，值：参数值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.DbParameterBase.GetParamValue``1(System.String)">
+            <summary>
+            获取参数值
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="ParameterName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="T:GZDBHelper.IDatabase">
+            <summary>
+            数据库操作接口
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteNonQuery(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，并返回受影响行数
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteDataReader``1(System.String,GZDBHelper.IDbParms,System.Func{System.Data.Common.DbDataReader,``0})">
+            <summary>
+            执行SQL语句，并返回指定对象集合
+            </summary>
+            <typeparam name="T">要返回的对象类型</typeparam>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <param name="action">转换委托</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteDataReader(System.String,GZDBHelper.IDbParms,System.Action{System.Data.Common.DbDataReader})">
+            <summary>
+            执行SQL语句，委托处理结果
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <param name="action">处理委托</param>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteScalar``1(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，返回第一行第一列
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.GetTable(System.String,System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，返回DataTable结构
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="TableName">表名</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.GetDataSet(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，返回DataSet结构
+            </summary>
+            <param name="sql">SQL语句</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.HasRow(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行SQL语句，判断是否有返回数据
+            </summary>
+            <param name="sql"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteNonQuerySP(System.String,GZDBHelper.IDbParms)">
+            <summary>
+             执行存储过程，并返回受影响行数
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteDataReaderSP``1(System.String,GZDBHelper.IDbParms,System.Func{System.Data.Common.DbDataReader,``0})">
+            <summary>
+            执行存储过程，并返回指定对象集合
+            </summary>
+            <typeparam name="T">要返回的对象类型</typeparam>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <param name="action">转换委托</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteDataReaderSP(System.String,GZDBHelper.IDbParms,System.Action{System.Data.Common.DbDataReader})">
+            <summary>
+            执行存储过程，委托处理结果
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteScalarSP``1(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，返回第一行第一列
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.GetTableSP(System.String,System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，返回DataTable结构
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="TableName">表名</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.GetDataSetSP(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，返回DataSet结构
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.HasRowSP(System.String,GZDBHelper.IDbParms)">
+            <summary>
+            执行存储过程，判断是否有返回数据
+            </summary>
+            <param name="StoredProcedureName">存储过程名称</param>
+            <param name="parameters">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.Update(System.Data.DataTable,System.String)">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.Update(System.Data.DataTable,System.String,System.Boolean)">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <param name="SetAllValues">更新所有值，True时更新所有字段，False时只更新有改变的字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.Update(System.Data.DataTable,System.String,System.Boolean,System.Data.ConflictOption)">
+            <summary>
+            更新表格数据到数据库
+            </summary>
+            <param name="dt">数据</param>
+            <param name="SelectSQL">查询语句</param>
+            <param name="SetAllValues">更新所有值，True时更新所有字段，False时只更新有改变的字段</param>
+            <param name="ConflictOption">指定将如何检测和解决对数据源的相互冲突的更改。</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.Insert``1(``0[])">
+            <summary>
+            新增【模型】
+            </summary>
+            <param name="objs"></param>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.Update``1(``0[])">
+            <summary>
+            更新【模型】
+            </summary>
+            <param name="objs"></param>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.Delete``1(``0[])">
+            <summary>
+            删除【模型】
+            </summary>
+            <param name="objs"></param>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteTransaction(System.Action{GZDBHelper.IDatabase})">
+            <summary>
+            在事物内执行
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.Excute(System.Action{GZDBHelper.IDatabase})">
+            <summary>
+            外部在同一链接下执行，如果要获取输出的参数值，用此方法执行，配合GetParamValue执行，或者多次提交
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="T:GZDBHelper.IDBConfig">
+            <summary>
+            数据库初始化配置接口
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.IDBConfig.GetDBConnectionInfo(System.String)">
+            <summary>
+            根据数据库别名获取数据库操作IDatabase对象
+            </summary>
+            <param name="DBCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDBConfig.RefreshDBList">
+            <summary>
+            刷新数据库集合，多数据库项目中使用
+            </summary>
+        </member>
+        <member name="T:GZDBHelper.IDbParms">
+            <summary>
+            查询参数提供类接口
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.IDbParms.GetParms">
+            <summary>
+            返回参数集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDbParms.GetParmArrary">
+            <summary>
+            返回键值对，参数名和参数值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GZDBHelper.ModelHandler`1">
+            <summary>
+            DataTable与实体类互相转换
+            </summary>
+            <typeparam name="T">实体类</typeparam>
+        </member>
+        <member name="M:GZDBHelper.ModelHandler`1.FillModel(System.Data.DataSet)">
+            <summary>
+            填充对象列表：用DataSet的第一个表填充实体类
+            </summary>
+            <param name="ds">DataSet</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ModelHandler`1.FillModel(System.Data.DataSet,System.Int32)">
+            <summary>  
+            填充对象列表：用DataSet的第index个表填充实体类
+            </summary>  
+        </member>
+        <member name="M:GZDBHelper.ModelHandler`1.FillModel(System.Data.DataTable)">
+            <summary>  
+            填充对象列表：用DataTable填充实体类
+            </summary>  
+        </member>
+        <member name="M:GZDBHelper.ModelHandler`1.FillModel(System.Data.DataRow)">
+            <summary>  
+            填充对象：用DataRow填充实体类
+            </summary>  
+        </member>
+        <member name="M:GZDBHelper.ModelHandler`1.FillDataSet(System.Collections.Generic.List{`0})">
+            <summary>
+            实体类转换成DataSet
+            </summary>
+            <param name="modelList">实体类列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ModelHandler`1.FillDataTable(System.Collections.Generic.List{`0})">
+            <summary>
+            实体类转换成DataTable
+            </summary>
+            <param name="modelList">实体类列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.ModelHandler`1.CreateData(`0)">
+            <summary>
+            根据实体类得到表结构
+            </summary>
+            <param name="model">实体类</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper._log.Add(System.String,System.String)">
+            <summary>
+            写日志，指定日志文件
+            </summary>
+            <param name="File"></param>
+            <param name="Msg"></param>
+        </member>
+    </members>
+</doc>
