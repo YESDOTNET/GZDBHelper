@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample_NET45", "Sample_NET4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GZDBHelper.MSSQL", "GZDBHelper.MSSQL\GZDBHelper.MSSQL.csproj", "{AE986BBC-3673-432A-880A-12106F4C17A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GZDBHelper.SQLite", "GZDBHelper.SQLite\GZDBHelper.SQLite.csproj", "{38377C69-1400-4E44-9B65-67D718A71543}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GZDBHelper.SQLite", "GZDBHelper.SQLite\GZDBHelper.SQLite.csproj", "{38377C69-1400-4E44-9B65-67D718A71543}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GZDBHelper.MySql", "GZDBHelper.MySql\GZDBHelper.MySql.csproj", "{70ABE88B-C9A7-4038-B757-5F3897579C3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{38377C69-1400-4E44-9B65-67D718A71543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38377C69-1400-4E44-9B65-67D718A71543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38377C69-1400-4E44-9B65-67D718A71543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70ABE88B-C9A7-4038-B757-5F3897579C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70ABE88B-C9A7-4038-B757-5F3897579C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70ABE88B-C9A7-4038-B757-5F3897579C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70ABE88B-C9A7-4038-B757-5F3897579C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

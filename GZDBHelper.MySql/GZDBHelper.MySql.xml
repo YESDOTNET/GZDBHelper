@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GZDBHelper.MySql</name>
+    </assembly>
+    <members>
+        <member name="T:GZDBHelper.SqlParameterProvider">
+            <summary>
+            查询参数生成基类
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.SqlParameterProvider.Params">
+            <summary>
+            参数集合
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.GetParms">
+            <summary>
+            获得参数集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.SetParmValue(System.String,System.Object)">
+            <summary>
+            更改查询参数的值
+            </summary>
+            <param name="ParamName">要更改的查询参数名称</param>
+            <param name="Value">新的参数值</param>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.GetParmArrary">
+            <summary>
+            返回键值对参数 键：参数名，值：参数值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.GetParamValue``1(System.String)">
+            <summary>
+            获取参数值
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="ParameterName">参数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,System.Object)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Object)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName"></param>
+            <param name="dbType"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Object)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName"></param>
+            <param name="dbType"></param>
+            <param name="size"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName"></param>
+            <param name="dbType"></param>
+            <param name="size"></param>
+            <param name="value"></param>
+            <param name="direction"></param>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Object,System.String)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName"></param>
+            <param name="dbType"></param>
+            <param name="size"></param>
+            <param name="value"></param>
+            <param name="sourceColumn"></param>
+        </member>
+    </members>
+</doc>
