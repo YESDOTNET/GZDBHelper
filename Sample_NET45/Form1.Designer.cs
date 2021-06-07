@@ -50,6 +50,17 @@ namespace Sample_NET45
             this.txt_MySQL_dbName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_MySQL_Port = new System.Windows.Forms.TextBox();
+            this.btn_testOracle = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -226,28 +237,129 @@ namespace Sample_NET45
             this.txt_MySQL_Port.Size = new System.Drawing.Size(100, 21);
             this.txt_MySQL_Port.TabIndex = 3;
             // 
+            // btn_testOracle
+            // 
+            this.btn_testOracle.Location = new System.Drawing.Point(75, 402);
+            this.btn_testOracle.Name = "btn_testOracle";
+            this.btn_testOracle.Size = new System.Drawing.Size(114, 23);
+            this.btn_testOracle.TabIndex = 1;
+            this.btn_testOracle.Text = "测试Oracle数据库";
+            this.btn_testOracle.UseVisualStyleBackColor = true;
+            this.btn_testOracle.Click += new System.EventHandler(this.btn_testOracle_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 356);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 12);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "服务器";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(75, 352);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(360, 356);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "用户名";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(199, 356);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(29, 12);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "端口";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(246, 352);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 3;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(407, 352);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 21);
+            this.textBox3.TabIndex = 3;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(545, 356);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(29, 12);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "密码";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(592, 352);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 21);
+            this.textBox4.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(730, 356);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 12);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "数据库名称";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(801, 352);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 21);
+            this.textBox5.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 450);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.txt_MySQL_dbName);
             this.Controls.Add(this.txt_MSSQL_dbName);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.txt_MySQL_Pwd);
             this.Controls.Add(this.txt_MSSQL_pwd);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.txt_MySQL_User);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txt_MySQL_Port);
             this.Controls.Add(this.txt__MSSQL_user);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_MySQL_Server);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_MSSQL_Server);
+            this.Controls.Add(this.btn_testOracle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_testMySQL);
             this.Controls.Add(this.btn_testSQLite);
@@ -282,6 +394,17 @@ namespace Sample_NET45
         private System.Windows.Forms.TextBox txt_MySQL_dbName;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_MySQL_Port;
+        private System.Windows.Forms.Button btn_testOracle;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
 

@@ -26,7 +26,7 @@ namespace GZDBHelper
             /// <summary>
             /// Oracle ProviderName
             /// </summary>
-            public const string ProviderNameForOracle = "Oracle.ManagedDataAccess";
+            public const string ProviderNameForOracle = "Oracle.ManagedDataAccess.Client";
             /// <summary>
             /// MSSql ProviderName
             /// </summary>
@@ -74,12 +74,16 @@ namespace GZDBHelper
         /// <param name="Host">服务器地址</param>
         /// <param name="Port">端口号</param>
         /// <param name="DataBaseName">数据库名</param>
-        /// <param name="UsreID">用户名</param>
+        /// <param name="UserID">用户名</param>
         /// <param name="Password">密码</param>
         /// <returns></returns>
-        public static string BuildOracleConnectionString(string Host, string Port, string DataBaseName, string UsreID, string Password)
+        public static string BuildOracleConnectionString(string Host, int Port, string DataBaseName, string UserID, string Password)
         {
-            return String.Format("Data Source={0}:{1}/{2}; User Id={3}; password={4}; Pooling=false;", Host, Port, DataBaseName, UsreID, Password);
+            //return String.Format("Data Source={0}:{1}/{2}; User Id={3}; password={4}; Pooling=false;", Host, Port, DataBaseName, UserID, Password);
+            //string str = $"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={Host})(PORT={Port}))(CONNECT_DATA=(SERVICE_NAME={DataBaseName})));Persist Security Info=True;User ID={UserID};Password={Password};";
+            return $"Data Source = (DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = {Host})(PORT = {Port})))(CONNECT_DATA =(SERVICE_NAME = {DataBaseName})));User ID={UserID};PassWord={Password}";
+
+
         }
 
         /// <summary>

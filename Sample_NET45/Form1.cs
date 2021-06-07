@@ -37,10 +37,10 @@ namespace Sample_NET45
             // 执行SQL语句
             DataTable data = db.GetTable("select database_id,name from sys.databases", "databases", null);
 
-            GZDBHelper.SqlParameterProvider parm = new GZDBHelper.SqlParameterProvider();
-            parm.AddParameter("@isid", SqlDbType.Int, 1);
-            string sql = "delete from tb_test where isid=@isid";
-            db.ExecuteDataReader(sql, parm);
+            //GZDBHelper.SqlParameterProvider parm = new GZDBHelper.SqlParameterProvider();
+            //parm.AddParameter("@isid", SqlDbType.Int, 1);
+            //string sql = "delete from tb_test where isid=@isid";
+            //db.ExecuteDataReader(sql, parm);
         }
 
         // 测试SQLite数据库
@@ -80,6 +80,22 @@ namespace Sample_NET45
             var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMySql, null);
 
             DataTable data = db.GetTable("select * from tb_employee;", "tb_employee", null);
+        }
+
+        private void btn_testOracle_Click(object sender, EventArgs e)
+        {
+            string Host = "192.168.68.128";
+            int Port = 1522;
+            string DataBaseName = "HR";
+            string UserID = "system";
+            string Password = "manager";
+            // 生成数据库连接
+            var connStr = GZDBHelper.ConnectionStrings.BuildOracleConnectionString(Host, Port, DataBaseName, UserID, Password);
+
+            // 创建数据库对象
+            var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForOracle, null);
+
+            DataTable data = db.GetTable("SELECT * from JOBS;", "JOBS", null);
         }
     }
 }

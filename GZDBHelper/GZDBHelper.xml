@@ -530,14 +530,14 @@
             <param name="Password"></param>
             <returns></returns>
         </member>
-        <member name="M:GZDBHelper.ConnectionStrings.BuildOracleConnectionString(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:GZDBHelper.ConnectionStrings.BuildOracleConnectionString(System.String,System.Int32,System.String,System.String,System.String)">
             <summary>
             生成Oracle链接字符串
             </summary>
             <param name="Host">服务器地址</param>
             <param name="Port">端口号</param>
             <param name="DataBaseName">数据库名</param>
-            <param name="UsreID">用户名</param>
+            <param name="UserID">用户名</param>
             <param name="Password">密码</param>
             <returns></returns>
         </member>
@@ -880,6 +880,13 @@
             在事物内执行
             </summary>
             <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.IDatabase.ExecuteTransaction(System.Func{GZDBHelper.IDatabase,System.Boolean})">
+            <summary>
+            在事务内运行
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
         </member>
         <member name="M:GZDBHelper.IDatabase.Excute(System.Action{GZDBHelper.IDatabase})">
             <summary>
