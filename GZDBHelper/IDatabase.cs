@@ -198,7 +198,11 @@ namespace GZDBHelper
         /// </summary>
         /// <param name="action"></param>
         bool ExecuteTransaction(Action<IDatabase> action);
-
+        /// <summary>
+        /// 在事务内运行
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
         bool ExecuteTransaction(Func<IDatabase, bool> action);
         ///// <summary>
         ///// 在事物内执行 手动提交或回滚事务

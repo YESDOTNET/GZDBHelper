@@ -92,6 +92,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GZDBHelper.MSSQL\GZDBHelper.MSSQL.csproj">
+      <Project>{ae986bbc-3673-432a-880a-12106f4c17a9}</Project>
+      <Name>GZDBHelper.MSSQL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GZDBHelper\GZDBHelper.csproj">
       <Project>{d2630259-8c89-48e1-8399-6be0fb8d1dcb}</Project>
       <Name>GZDBHelper</Name>

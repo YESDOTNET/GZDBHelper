@@ -37,6 +37,10 @@ namespace Sample_NET45
             // 执行SQL语句
             DataTable data = db.GetTable("select database_id,name from sys.databases", "databases", null);
 
+            GZDBHelper.SqlParameterProvider parm = new GZDBHelper.SqlParameterProvider();
+            parm.AddParameter("@isid", SqlDbType.Int, 1);
+            string sql = "delete from tb_test where isid=@isid";
+            db.ExecuteDataReader(sql, parm);
         }
 
         // 测试SQLite数据库
