@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GZDBHelper.MSSQL", "GZDBHel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GZDBHelper.SQLite", "GZDBHelper.SQLite\GZDBHelper.SQLite.csproj", "{38377C69-1400-4E44-9B65-67D718A71543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GZDBHelper.MySql", "GZDBHelper.MySql\GZDBHelper.MySql.csproj", "{70ABE88B-C9A7-4038-B757-5F3897579C3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GZDBHelper.MySql", "GZDBHelper.MySql\GZDBHelper.MySql.csproj", "{70ABE88B-C9A7-4038-B757-5F3897579C3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
