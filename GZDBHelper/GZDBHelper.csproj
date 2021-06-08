@@ -27,6 +27,9 @@ http://www.yesdotnet.com/archive/gzhelper/1614552868.html</Description>
 		<Authors>GarsonZhang</Authors>
 		<PackageIcon>logo.png</PackageIcon>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <OutputPath>..\Release\GZDBHelper</OutputPath>
+	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>

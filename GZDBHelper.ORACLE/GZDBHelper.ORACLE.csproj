@@ -34,5 +34,8 @@ http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageReleaseNotes>
   <ItemGroup>
     <ProjectReference Include="..\GZDBHelper\GZDBHelper.csproj" />
   </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Release\GZDBHelper.ORACLE</OutputPath>
+  </PropertyGroup>
 
 </Project>

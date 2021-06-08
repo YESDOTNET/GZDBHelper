@@ -45,4 +45,7 @@ http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageReleaseNotes>
 	    <PackagePath></PackagePath>
 	  </None>
 	</ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Release\GZDBHelper.MSSQL</OutputPath>
+  </PropertyGroup>
 </Project>

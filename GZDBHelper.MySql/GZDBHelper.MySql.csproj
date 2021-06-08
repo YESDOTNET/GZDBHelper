@@ -63,5 +63,8 @@ http://www.yesdotnet.com/archive/gzhelper/1614552868.html</Description>
 	    <PackagePath></PackagePath>
 	  </None>
 	</ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Release\GZDBHelper.MySql</OutputPath>
+  </PropertyGroup>
 
 </Project>
