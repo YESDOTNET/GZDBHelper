@@ -11,7 +11,9 @@
 		<Deterministic>false</Deterministic>-->
     <RootNamespace>GZDBHelper</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.2</Version>
+    <AssemblyVersion>2.0.3.0</AssemblyVersion>
+    <FileVersion>2.0.3.0</FileVersion>
+    <Version>2.0.3</Version>
     <Authors>GarsonZhang</Authors>
     <Company>南阳君创科技有限公司</Company>
     <Product>C#.NET 数据库访问组件</Product>
@@ -21,6 +23,7 @@ http://www.yesdotnet.com/archive/gzhelper/1614552868.html</Description>
 http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageReleaseNotes>
     <PackageProjectUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageProjectUrl>
     <RepositoryUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</RepositoryUrl>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <None Include="..\logo.png">
