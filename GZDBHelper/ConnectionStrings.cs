@@ -10,6 +10,7 @@ namespace GZDBHelper
     /// </summary>
     public class ConnectionStrings
     {
+#if NET40 || NET45 || NET46
         /// <summary>
         /// 参考Provider名称
         /// </summary>
@@ -36,7 +37,7 @@ namespace GZDBHelper
             /// </summary>
             public const string ProviderNameForMySql = "MySql.Data.MySqlClient";
         }
-
+#endif
 
         /// <summary>
         /// 生成MSSQL链接字符串  Server = {0};Database = {1};User ID = {2};Password = {3};Trusted_Connection = False

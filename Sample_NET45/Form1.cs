@@ -30,9 +30,11 @@ namespace Sample_NET45
 
             // 生成数据库连接字符串
             var connStr = GZDBHelper.ConnectionStrings.BuildMSSQLConnectionString(server, dbname, user, pwd);
-
+            //DbProviderFactories
+            //var obj = new System.Data.SqlClient.SqlClientFactory();
             // 创建数据库对象
-            var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMSSql, null);
+            //var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMSSql, null);
+            var db = GZDBHelper.DatabaseFactory.CreateDatabase(System.Data.SqlClient.SqlClientFactory.Instance, connStr, null);
 
             // 执行SQL语句
             DataTable data = db.GetTable("select database_id,name from sys.databases", "databases", null);
@@ -53,8 +55,8 @@ namespace Sample_NET45
             var connStr = GZDBHelper.ConnectionStrings.BuildSqliteConnectionString(dbFile);
 
             // 创建数据库对象
-            var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForSqlite, null);
-
+            //var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForSqlite, null);
+            var db = GZDBHelper.DatabaseFactory.CreateDatabase(System.Data.SQLite.SQLiteFactory.Instance, connStr, null);
             // 执行SQL获取数据
             DataTable data = db.GetTable("select * from tb_test", "tb_test", null);
 
@@ -77,7 +79,9 @@ namespace Sample_NET45
             var connStr = GZDBHelper.ConnectionStrings.BuildMySQLConnectionString(server, port, dbname, user, pwd);
 
             // 创建数据库对象
-            var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMySql, null);
+            //var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMySql, null);
+            
+            var db = GZDBHelper.DatabaseFactory.CreateDatabase(MySql.Data.MySqlClient.MySqlClientFactory.Instance, connStr, null);
 
             DataTable data = db.GetTable("select * from tb_employee;", "tb_employee", null);
         }
@@ -99,7 +103,9 @@ namespace Sample_NET45
             var connStr = GZDBHelper.ConnectionStrings.BuildOracleConnectionString(Host, Port, DataBaseName, UserID, Password);
 
             // 创建数据库对象
-            var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForOracle, null);
+            //var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForOracle, null);
+
+            var db = GZDBHelper.DatabaseFactory.CreateDatabase(Oracle.ManagedDataAccess.Client.OracleClientFactory.Instance, connStr, null);
 
             DataTable data = db.GetTable("SELECT * from JOBS;", "JOBS", null);
         }

@@ -251,13 +251,13 @@
             执行超时
             </summary>
         </member>
-        <member name="M:GZDBHelper.ConnectionDatabase.#ctor(System.String,System.String,System.Action{System.Data.Common.DbDataAdapter})">
+        <member name="M:GZDBHelper.ConnectionDatabase.#ctor(System.Data.Common.DbProviderFactory,System.String,System.Action{System.Data.Common.DbDataAdapter})">
             <summary>
             构造函数
             </summary>
+            <param name="dbProviderFactory">数据库管理对象</param>
             <param name="connectionString">数据库连接字符串</param>
-            <param name="providerName">指定提供程序名称的 System.Data.Common.DbProviderFactory 的一个实例</param>
-            /// <param name="cAdapter"></param>
+            <param name="cAdapter"></param>
         </member>
         <member name="M:GZDBHelper.ConnectionDatabase.CreateConnection">
             <summary>
@@ -479,36 +479,6 @@
             数据库链接字符串生成类
             </summary>
         </member>
-        <member name="T:GZDBHelper.ConnectionStrings.ProviderNames">
-            <summary>
-            参考Provider名称
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForAccess">
-            <summary>
-            Access ProviderName
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForSqlite">
-            <summary>
-            Sqlite ProviderName
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForOracle">
-            <summary>
-            Oracle ProviderName
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMSSql">
-            <summary>
-            MSSql ProviderName
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMySql">
-            <summary>
-            MySQL ProviderName
-            </summary>
-        </member>
         <member name="M:GZDBHelper.ConnectionStrings.BuildMSSQLConnectionString(System.String,System.String,System.String,System.String)">
             <summary>
             生成MSSQL链接字符串  Server = {0};Database = {1};User ID = {2};Password = {3};Trusted_Connection = False
@@ -609,12 +579,12 @@
             数据库操作对象生成工厂
             </summary>
         </member>
-        <member name="M:GZDBHelper.DatabaseFactory.CreateDatabase(System.String,System.String,System.Action{System.Data.Common.DbDataAdapter})">
+        <member name="M:GZDBHelper.DatabaseFactory.CreateDatabase(System.Data.Common.DbProviderFactory,System.String,System.Action{System.Data.Common.DbDataAdapter})">
             <summary>
-            创建数据库操作对象
+            创建数据库对象
             </summary>
-            <param name="connectionString"></param>
-            <param name="providerName"></param>
+            <param name="dbProviderFactory">数据库管理对象</param>
+            <param name="connectionString">数据库连接字符串</param>
             <param name="CustomerDbDataAdapter"></param>
             <returns></returns>
         </member>

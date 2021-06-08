@@ -6,4 +6,15 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.114.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GZDBHelper.MSSQL\GZDBHelper.MSSQL.csproj" />
+    <ProjectReference Include="..\GZDBHelper.MySql\GZDBHelper.MySql.csproj" />
+    <ProjectReference Include="..\GZDBHelper.SQLite\GZDBHelper.SQLite.csproj" />
+    <ProjectReference Include="..\GZDBHelper\GZDBHelper.csproj" />
+  </ItemGroup>
+
 </Project>

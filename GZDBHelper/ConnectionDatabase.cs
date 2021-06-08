@@ -40,6 +40,7 @@ namespace GZDBHelper
 
         private Action<DbDataAdapter> CustomerDbDataAdapter;
 
+#if NET40 || NET45 || NET46
         /// <summary>
         /// 构造函数
         /// </summary>
@@ -52,6 +53,20 @@ namespace GZDBHelper
             _ProviderFactory = DbProviderFactories.GetFactory(providerName);
             CustomerDbDataAdapter = cAdapter;
         }
+#endif
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="dbProviderFactory">数据库管理对象</param>
+        /// <param name="connectionString">数据库连接字符串</param>
+        /// <param name="cAdapter"></param>
+        public ConnectionDatabase(DbProviderFactory dbProviderFactory, string connectionString, Action<DbDataAdapter> cAdapter)
+        {
+            _ConnectionString = connectionString;
+            _ProviderFactory = dbProviderFactory;
+            CustomerDbDataAdapter = cAdapter;
+        }
+
         /// <summary>
         /// 创建数据库连接并打开
         /// </summary>
@@ -553,4 +568,5 @@ namespace GZDBHelper
         //    throw new Exception("不能直接获取参数值，若要获取参数值，请在CommandDatabase中获取！");
         //}
     }
+
 }
