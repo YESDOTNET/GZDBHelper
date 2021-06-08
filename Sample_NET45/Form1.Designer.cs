@@ -75,7 +75,7 @@ namespace Sample_NET45
             // 
             // btn_testSQLite
             // 
-            this.btn_testSQLite.Location = new System.Drawing.Point(75, 193);
+            this.btn_testSQLite.Location = new System.Drawing.Point(75, 136);
             this.btn_testSQLite.Name = "btn_testSQLite";
             this.btn_testSQLite.Size = new System.Drawing.Size(114, 23);
             this.btn_testSQLite.TabIndex = 1;
@@ -149,7 +149,7 @@ namespace Sample_NET45
             // 
             // btn_testMySQL
             // 
-            this.btn_testMySQL.Location = new System.Drawing.Point(75, 303);
+            this.btn_testMySQL.Location = new System.Drawing.Point(75, 231);
             this.btn_testMySQL.Name = "btn_testMySQL";
             this.btn_testMySQL.Size = new System.Drawing.Size(114, 23);
             this.btn_testMySQL.TabIndex = 1;
@@ -160,7 +160,7 @@ namespace Sample_NET45
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 257);
+            this.label5.Location = new System.Drawing.Point(28, 185);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 2;
@@ -168,7 +168,7 @@ namespace Sample_NET45
             // 
             // txt_MySQL_Server
             // 
-            this.txt_MySQL_Server.Location = new System.Drawing.Point(75, 253);
+            this.txt_MySQL_Server.Location = new System.Drawing.Point(75, 181);
             this.txt_MySQL_Server.Name = "txt_MySQL_Server";
             this.txt_MySQL_Server.Size = new System.Drawing.Size(100, 21);
             this.txt_MySQL_Server.TabIndex = 3;
@@ -176,7 +176,7 @@ namespace Sample_NET45
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(360, 257);
+            this.label6.Location = new System.Drawing.Point(360, 185);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 2;
@@ -184,7 +184,7 @@ namespace Sample_NET45
             // 
             // txt_MySQL_User
             // 
-            this.txt_MySQL_User.Location = new System.Drawing.Point(407, 253);
+            this.txt_MySQL_User.Location = new System.Drawing.Point(407, 181);
             this.txt_MySQL_User.Name = "txt_MySQL_User";
             this.txt_MySQL_User.Size = new System.Drawing.Size(100, 21);
             this.txt_MySQL_User.TabIndex = 3;
@@ -192,7 +192,7 @@ namespace Sample_NET45
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(545, 257);
+            this.label7.Location = new System.Drawing.Point(545, 185);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 12);
             this.label7.TabIndex = 2;
@@ -200,7 +200,7 @@ namespace Sample_NET45
             // 
             // txt_MySQL_Pwd
             // 
-            this.txt_MySQL_Pwd.Location = new System.Drawing.Point(592, 253);
+            this.txt_MySQL_Pwd.Location = new System.Drawing.Point(592, 181);
             this.txt_MySQL_Pwd.Name = "txt_MySQL_Pwd";
             this.txt_MySQL_Pwd.Size = new System.Drawing.Size(100, 21);
             this.txt_MySQL_Pwd.TabIndex = 3;
@@ -208,7 +208,7 @@ namespace Sample_NET45
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(730, 257);
+            this.label8.Location = new System.Drawing.Point(730, 185);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 2;
@@ -216,7 +216,7 @@ namespace Sample_NET45
             // 
             // txt_MySQL_dbName
             // 
-            this.txt_MySQL_dbName.Location = new System.Drawing.Point(801, 253);
+            this.txt_MySQL_dbName.Location = new System.Drawing.Point(801, 181);
             this.txt_MySQL_dbName.Name = "txt_MySQL_dbName";
             this.txt_MySQL_dbName.Size = new System.Drawing.Size(100, 21);
             this.txt_MySQL_dbName.TabIndex = 3;
@@ -224,7 +224,7 @@ namespace Sample_NET45
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(199, 257);
+            this.label9.Location = new System.Drawing.Point(199, 185);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 2;
@@ -232,14 +232,14 @@ namespace Sample_NET45
             // 
             // txt_MySQL_Port
             // 
-            this.txt_MySQL_Port.Location = new System.Drawing.Point(246, 253);
+            this.txt_MySQL_Port.Location = new System.Drawing.Point(246, 181);
             this.txt_MySQL_Port.Name = "txt_MySQL_Port";
             this.txt_MySQL_Port.Size = new System.Drawing.Size(100, 21);
             this.txt_MySQL_Port.TabIndex = 3;
             // 
             // btn_testOracle
             // 
-            this.btn_testOracle.Location = new System.Drawing.Point(75, 402);
+            this.btn_testOracle.Location = new System.Drawing.Point(75, 330);
             this.btn_testOracle.Name = "btn_testOracle";
             this.btn_testOracle.Size = new System.Drawing.Size(114, 23);
             this.btn_testOracle.TabIndex = 1;
@@ -250,7 +250,7 @@ namespace Sample_NET45
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 356);
+            this.label10.Location = new System.Drawing.Point(28, 284);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 12);
             this.label10.TabIndex = 2;
@@ -258,7 +258,7 @@ namespace Sample_NET45
             // 
             // txt_Oracle_Host
             // 
-            this.txt_Oracle_Host.Location = new System.Drawing.Point(75, 352);
+            this.txt_Oracle_Host.Location = new System.Drawing.Point(75, 280);
             this.txt_Oracle_Host.Name = "txt_Oracle_Host";
             this.txt_Oracle_Host.Size = new System.Drawing.Size(100, 21);
             this.txt_Oracle_Host.TabIndex = 3;
@@ -266,7 +266,7 @@ namespace Sample_NET45
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(360, 356);
+            this.label11.Location = new System.Drawing.Point(360, 284);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 12);
             this.label11.TabIndex = 2;
@@ -275,7 +275,7 @@ namespace Sample_NET45
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(199, 356);
+            this.label12.Location = new System.Drawing.Point(199, 284);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 12);
             this.label12.TabIndex = 2;
@@ -283,14 +283,14 @@ namespace Sample_NET45
             // 
             // txt_Oracle_Port
             // 
-            this.txt_Oracle_Port.Location = new System.Drawing.Point(246, 352);
+            this.txt_Oracle_Port.Location = new System.Drawing.Point(246, 280);
             this.txt_Oracle_Port.Name = "txt_Oracle_Port";
             this.txt_Oracle_Port.Size = new System.Drawing.Size(100, 21);
             this.txt_Oracle_Port.TabIndex = 3;
             // 
             // txt_Oracle_User
             // 
-            this.txt_Oracle_User.Location = new System.Drawing.Point(407, 352);
+            this.txt_Oracle_User.Location = new System.Drawing.Point(407, 280);
             this.txt_Oracle_User.Name = "txt_Oracle_User";
             this.txt_Oracle_User.Size = new System.Drawing.Size(100, 21);
             this.txt_Oracle_User.TabIndex = 3;
@@ -298,7 +298,7 @@ namespace Sample_NET45
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(545, 356);
+            this.label13.Location = new System.Drawing.Point(545, 284);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 2;
@@ -306,7 +306,7 @@ namespace Sample_NET45
             // 
             // txt_Oracle_PWD
             // 
-            this.txt_Oracle_PWD.Location = new System.Drawing.Point(592, 352);
+            this.txt_Oracle_PWD.Location = new System.Drawing.Point(592, 280);
             this.txt_Oracle_PWD.Name = "txt_Oracle_PWD";
             this.txt_Oracle_PWD.Size = new System.Drawing.Size(100, 21);
             this.txt_Oracle_PWD.TabIndex = 3;
@@ -314,7 +314,7 @@ namespace Sample_NET45
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(730, 356);
+            this.label14.Location = new System.Drawing.Point(730, 284);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 12);
             this.label14.TabIndex = 2;
@@ -322,7 +322,7 @@ namespace Sample_NET45
             // 
             // txt_Oracle_DataBaseName
             // 
-            this.txt_Oracle_DataBaseName.Location = new System.Drawing.Point(801, 352);
+            this.txt_Oracle_DataBaseName.Location = new System.Drawing.Point(801, 280);
             this.txt_Oracle_DataBaseName.Name = "txt_Oracle_DataBaseName";
             this.txt_Oracle_DataBaseName.Size = new System.Drawing.Size(100, 21);
             this.txt_Oracle_DataBaseName.TabIndex = 3;

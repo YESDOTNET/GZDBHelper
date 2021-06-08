@@ -9,7 +9,7 @@
 	<PropertyGroup>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Deterministic>false</Deterministic>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageProjectUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageProjectUrl>
 		<ApplicationIcon>logo.ico</ApplicationIcon>
