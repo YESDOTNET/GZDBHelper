@@ -81,7 +81,8 @@ namespace GZDBHelper
         {
             //return String.Format("Data Source={0}:{1}/{2}; User Id={3}; password={4}; Pooling=false;", Host, Port, DataBaseName, UserID, Password);
             //string str = $"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={Host})(PORT={Port}))(CONNECT_DATA=(SERVICE_NAME={DataBaseName})));Persist Security Info=True;User ID={UserID};Password={Password};";
-            return $"Data Source = (DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = {Host})(PORT = {Port})))(CONNECT_DATA =(SERVICE_NAME = {DataBaseName})));User ID={UserID};PassWord={Password}";
+            //return $"Data Source = (DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = {Host})(PORT = {Port})))(CONNECT_DATA =(SERVICE_NAME = ORCL)));User ID={UserID};PassWord={Password}";
+            return $"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={Host})(PORT={Port}))(CONNECT_DATA=(SERVICE_NAME={DataBaseName})));User Id={UserID};Password={Password}";
 
 
         }

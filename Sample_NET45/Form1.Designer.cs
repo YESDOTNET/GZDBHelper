@@ -52,15 +52,15 @@ namespace Sample_NET45
             this.txt_MySQL_Port = new System.Windows.Forms.TextBox();
             this.btn_testOracle = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Oracle_Host = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_Oracle_Port = new System.Windows.Forms.TextBox();
+            this.txt_Oracle_User = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_Oracle_PWD = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txt_Oracle_DataBaseName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -256,12 +256,12 @@ namespace Sample_NET45
             this.label10.TabIndex = 2;
             this.label10.Text = "服务器";
             // 
-            // textBox1
+            // txt_Oracle_Host
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 352);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 3;
+            this.txt_Oracle_Host.Location = new System.Drawing.Point(75, 352);
+            this.txt_Oracle_Host.Name = "txt_Oracle_Host";
+            this.txt_Oracle_Host.Size = new System.Drawing.Size(100, 21);
+            this.txt_Oracle_Host.TabIndex = 3;
             // 
             // label11
             // 
@@ -281,19 +281,19 @@ namespace Sample_NET45
             this.label12.TabIndex = 2;
             this.label12.Text = "端口";
             // 
-            // textBox2
+            // txt_Oracle_Port
             // 
-            this.textBox2.Location = new System.Drawing.Point(246, 352);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 3;
+            this.txt_Oracle_Port.Location = new System.Drawing.Point(246, 352);
+            this.txt_Oracle_Port.Name = "txt_Oracle_Port";
+            this.txt_Oracle_Port.Size = new System.Drawing.Size(100, 21);
+            this.txt_Oracle_Port.TabIndex = 3;
             // 
-            // textBox3
+            // txt_Oracle_User
             // 
-            this.textBox3.Location = new System.Drawing.Point(407, 352);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 3;
+            this.txt_Oracle_User.Location = new System.Drawing.Point(407, 352);
+            this.txt_Oracle_User.Name = "txt_Oracle_User";
+            this.txt_Oracle_User.Size = new System.Drawing.Size(100, 21);
+            this.txt_Oracle_User.TabIndex = 3;
             // 
             // label13
             // 
@@ -304,12 +304,12 @@ namespace Sample_NET45
             this.label13.TabIndex = 2;
             this.label13.Text = "密码";
             // 
-            // textBox4
+            // txt_Oracle_PWD
             // 
-            this.textBox4.Location = new System.Drawing.Point(592, 352);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 21);
-            this.textBox4.TabIndex = 3;
+            this.txt_Oracle_PWD.Location = new System.Drawing.Point(592, 352);
+            this.txt_Oracle_PWD.Name = "txt_Oracle_PWD";
+            this.txt_Oracle_PWD.Size = new System.Drawing.Size(100, 21);
+            this.txt_Oracle_PWD.TabIndex = 3;
             // 
             // label14
             // 
@@ -320,33 +320,33 @@ namespace Sample_NET45
             this.label14.TabIndex = 2;
             this.label14.Text = "数据库名称";
             // 
-            // textBox5
+            // txt_Oracle_DataBaseName
             // 
-            this.textBox5.Location = new System.Drawing.Point(801, 352);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 21);
-            this.textBox5.TabIndex = 3;
+            this.txt_Oracle_DataBaseName.Location = new System.Drawing.Point(801, 352);
+            this.txt_Oracle_DataBaseName.Name = "txt_Oracle_DataBaseName";
+            this.txt_Oracle_DataBaseName.Size = new System.Drawing.Size(100, 21);
+            this.txt_Oracle_DataBaseName.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 450);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txt_Oracle_DataBaseName);
             this.Controls.Add(this.txt_MySQL_dbName);
             this.Controls.Add(this.txt_MSSQL_dbName);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txt_Oracle_PWD);
             this.Controls.Add(this.txt_MySQL_Pwd);
             this.Controls.Add(this.txt_MSSQL_pwd);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_Oracle_User);
             this.Controls.Add(this.txt_MySQL_User);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_Oracle_Port);
             this.Controls.Add(this.txt_MySQL_Port);
             this.Controls.Add(this.txt__MSSQL_user);
             this.Controls.Add(this.label12);
@@ -354,7 +354,7 @@ namespace Sample_NET45
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_Oracle_Host);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_MySQL_Server);
             this.Controls.Add(this.label5);
@@ -396,15 +396,15 @@ namespace Sample_NET45
         private System.Windows.Forms.TextBox txt_MySQL_Port;
         private System.Windows.Forms.Button btn_testOracle;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Oracle_Host;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_Oracle_Port;
+        private System.Windows.Forms.TextBox txt_Oracle_User;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_Oracle_PWD;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txt_Oracle_DataBaseName;
     }
 }
 

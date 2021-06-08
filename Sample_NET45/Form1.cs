@@ -84,11 +84,17 @@ namespace Sample_NET45
 
         private void btn_testOracle_Click(object sender, EventArgs e)
         {
-            string Host = "192.168.68.128";
-            int Port = 1522;
-            string DataBaseName = "HR";
-            string UserID = "system";
-            string Password = "manager";
+            //string Host = "192.168.68.129";
+            //int Port = 1521;
+            //string DataBaseName = "orcl.localdomain";
+            //string UserID = "HR";
+            //string Password = "123456";
+
+            string Host = txt_Oracle_Host.Text;
+            int Port = int.Parse(txt_Oracle_Port.Text);
+            string DataBaseName = txt_Oracle_DataBaseName.Text;
+            string UserID = txt_Oracle_User.Text;
+            string Password = txt_Oracle_PWD.Text;
             // 生成数据库连接
             var connStr = GZDBHelper.ConnectionStrings.BuildOracleConnectionString(Host, Port, DataBaseName, UserID, Password);
 
