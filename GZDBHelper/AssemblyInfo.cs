@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("GZDBHelper")]
-[assembly: AssemblyDescription("GZDBHelper")]
+[assembly: AssemblyDescription("C#.NET 开源数据库访问组件，支持各种主流数据库\r\nhttp://www.yesdotnet.com/archive/gzhelper/1614552868.html")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("南阳君创信息科技有限公司")]
 [assembly: AssemblyProduct(".NET数据库访问组件")]
@@ -31,4 +31,4 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.*")]
+[assembly: AssemblyVersion("2.0.1.*")]

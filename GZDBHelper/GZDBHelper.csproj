@@ -9,9 +9,24 @@
 	<PropertyGroup>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Deterministic>false</Deterministic>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageProjectUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageProjectUrl>
+		<ApplicationIcon>logo.ico</ApplicationIcon>
+		<PackageIcon>logo.png</PackageIcon>
+		<PackageIconUrl />
+		<RepositoryUrl>https://github.com/YESDOTNET/GZDBHelper</RepositoryUrl>
+		<PackageReleaseNotes>C#.NET 开源数据库访问组件，支持各种主流数据库
+http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="logo.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
 	</ItemGroup>
 
 </Project>
