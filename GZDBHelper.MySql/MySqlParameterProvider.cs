@@ -10,7 +10,7 @@ namespace GZDBHelper
     /// <summary>
     /// 查询参数生成基类
     /// </summary>
-    public class SqlParameterProvider : IDbParms
+    public class MySqlParameterProvider : IDbParms
     {
         /// <summary>
         /// 参数集合
@@ -20,7 +20,7 @@ namespace GZDBHelper
         /// <summary>
         /// 构造函数
         /// </summary>
-        public SqlParameterProvider()
+        public MySqlParameterProvider()
         {
             Params = new List<DbParameter>();
         }

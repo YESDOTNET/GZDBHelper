@@ -6,16 +6,32 @@
 	<PropertyGroup>
 		<DocumentationFile>GZDBHelper.SQLite.xml</DocumentationFile>
 	</PropertyGroup>
-	<PropertyGroup>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<Deterministic>false</Deterministic>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<!--<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<Deterministic>false</Deterministic>-->
 		<RootNamespace>GZDBHelper</RootNamespace>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>2.0.2</Version>
+		<Authors>GarsonZhang</Authors>
+		<Company>南阳君创科技有限公司</Company>
+		<Product>C#.NET 数据库访问组件</Product>
+		<Description>C#.NET 开源数据库访问组件，支持各种主流数据库
+http://www.yesdotnet.com/archive/gzhelper/1614552868.html</Description>
+		<PackageReleaseNotes>C#.NET 开源数据库访问组件，支持各种主流数据库
+http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageReleaseNotes>
+		<PackageProjectUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageProjectUrl>
+		<RepositoryUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</RepositoryUrl>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.114.2" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\GZDBHelper\GZDBHelper.csproj" />
+	</ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <None Include="..\logo.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
 	</ItemGroup>
 </Project>

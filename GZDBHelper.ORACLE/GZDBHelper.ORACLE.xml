@@ -1,44 +1,44 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>GZDBHelper.MySql</name>
+        <name>GZDBHelper.ORACLE</name>
     </assembly>
     <members>
-        <member name="T:GZDBHelper.MySqlParameterProvider">
+        <member name="T:GZDBHelper.OracleParameterProvider">
             <summary>
             查询参数生成基类
             </summary>
         </member>
-        <member name="F:GZDBHelper.MySqlParameterProvider.Params">
+        <member name="F:GZDBHelper.OracleParameterProvider.Params">
             <summary>
             参数集合
             </summary>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.#ctor">
+        <member name="M:GZDBHelper.OracleParameterProvider.#ctor">
             <summary>
             构造函数
             </summary>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.GetParms">
+        <member name="M:GZDBHelper.OracleParameterProvider.GetParms">
             <summary>
             获得参数集合
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.SetParmValue(System.String,System.Object)">
+        <member name="M:GZDBHelper.OracleParameterProvider.SetParmValue(System.String,System.Object)">
             <summary>
             更改查询参数的值
             </summary>
             <param name="ParamName">要更改的查询参数名称</param>
             <param name="Value">新的参数值</param>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.GetParmArrary">
+        <member name="M:GZDBHelper.OracleParameterProvider.GetParmArrary">
             <summary>
             返回键值对参数 键：参数名，值：参数值
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.GetParamValue``1(System.String)">
+        <member name="M:GZDBHelper.OracleParameterProvider.GetParamValue``1(System.String)">
             <summary>
             获取参数值
             </summary>
@@ -46,14 +46,14 @@
             <param name="ParameterName">参数名</param>
             <returns></returns>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.AddParameter(System.String,System.Object)">
+        <member name="M:GZDBHelper.OracleParameterProvider.AddParameter(System.String,System.Object)">
             <summary>
             添加参数
             </summary>
             <param name="parameterName"></param>
             <param name="value"></param>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Object)">
+        <member name="M:GZDBHelper.OracleParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Object)">
             <summary>
             添加参数
             </summary>
@@ -61,7 +61,7 @@
             <param name="dbType"></param>
             <param name="value"></param>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.AddParameter(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Object)">
+        <member name="M:GZDBHelper.OracleParameterProvider.AddParameter(System.String,Oracle.ManagedDataAccess.Client.OracleDbType,System.Int32,System.Object)">
             <summary>
             添加参数
             </summary>
@@ -70,7 +70,7 @@
             <param name="size"></param>
             <param name="value"></param>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.AddParameter(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Object,System.Data.ParameterDirection)">
+        <member name="M:GZDBHelper.OracleParameterProvider.AddParameter(System.String,Oracle.ManagedDataAccess.Client.OracleDbType,System.Int32,System.Object,System.Data.ParameterDirection)">
             <summary>
             添加参数
             </summary>
@@ -80,7 +80,7 @@
             <param name="value"></param>
             <param name="direction"></param>
         </member>
-        <member name="M:GZDBHelper.MySqlParameterProvider.AddParameter(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Object,System.String)">
+        <member name="M:GZDBHelper.OracleParameterProvider.AddParameter(System.String,Oracle.ManagedDataAccess.Client.OracleDbType,System.Int32,System.Object,System.String)">
             <summary>
             添加参数
             </summary>
