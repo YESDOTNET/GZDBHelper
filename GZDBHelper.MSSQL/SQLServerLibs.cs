@@ -89,7 +89,7 @@ namespace GZDBHelper
                 string inStr = string.Join(",", xtype.Select(a => "'" + a + "'"));
                 string sql = $@"SELECT a.object_id as ObjectID,a.name as ObjectName,a.type as ObjectType,a.create_date as CreateDate,a.modify_date as ModifyDate,b.value as Description
                     FROM  sys.objects  AS a LEFT JOIN  (SELECT * FROM sys.extended_properties  WHERE name='MS_Description') AS b ON a.object_id=b.major_id AND b.minor_id=0
-                    Where xtype in ({inStr}) ORDER BY xtype, name";
+                    Where a.type in ({inStr}) ORDER BY a.type, a.name";
 
                 return db.ExecuteDataList<ModelObjectItem>(sql, null);
             }
@@ -118,7 +118,7 @@ namespace GZDBHelper
                 string inStr = string.Join(",", xtype.Select(a => "'" + a + "'"));
                 string sql = $@"SELECT a.object_id as ObjectID,a.name as ObjectName,a.type as ObjectType,a.create_date as CreateDate,a.modify_date as ModifyDate,b.value as Description
                     FROM  sys.objects  AS a LEFT JOIN  (SELECT * FROM sys.extended_properties  WHERE name='MS_Description') AS b ON a.object_id=b.major_id AND b.minor_id=0
-                    Where xtype in ({inStr}) ORDER BY xtype, name";
+                    Where a.type in ({inStr}) ORDER BY a.type, a.name";
 
                 var data = db.ExecuteDataList<ModelObjectItem2>(sql, null);
 
@@ -126,6 +126,7 @@ namespace GZDBHelper
                 {
                     foreach (var obj in data)
                     {
+                        obj.ObjectType = obj.ObjectType.Trim();
                         if (obj.ObjectType == "U")
                         {
                             SqlParameterProvider paramers = new SqlParameterProvider();
@@ -133,7 +134,7 @@ namespace GZDBHelper
 
                             _db.ExecuteDataReaderSP("sp_spaceused", paramers, row =>
                             {
-                                obj.rows = row.GetFieldValue<int>("rows");
+                                obj.rows = int.Parse(row.GetFieldValue<string>("rows").Trim());
                                 obj.reserved = row.GetFieldValue<string>("reserved");
                                 obj.data = row.GetFieldValue<string>("data");
                                 obj.index_size = row.GetFieldValue<string>("index_size");
@@ -174,7 +175,7 @@ namespace GZDBHelper
 
                      FROM sys.columns a LEFT JOIN sys.extended_properties b ON b.major_id = a.object_id AND b.minor_id = a.column_id AND b.name = 'MS_Description' 
                          LEFT JOIN sys.types AS c ON c.user_type_id = a.user_type_id
-                     WHERE    a.object_id =select object_id from sys.objects where name=@tableName
+                     WHERE    a.object_id =(select object_id from sys.objects where name=@tableName)
                      ORDER  BY OBJECT_NAME(a.object_id), a.column_id";
 
 
@@ -192,7 +193,10 @@ namespace GZDBHelper
             string sqlKeys = @" SELECT a.TABLE_NAME,a.COLUMN_NAME,b.type
 		                FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS a INNER JOIN sys.objects AS b ON a.CONSTRAINT_NAME=b.name
 		                WHERE TABLE_NAME=@tableName ";
-            db.ExecuteDataReader(sqlKeys, parameters, row =>
+
+            SqlParameterProvider parameters2 = new SqlParameterProvider();
+            parameters2.AddParameter("@tableName", SqlDbType.VarChar, TableName);
+            db.ExecuteDataReader(sqlKeys, parameters2, row =>
             {
                 string type = row.GetFieldValue<string>("type");
                 string columnName = row.GetFieldValue<string>("COLUMN_NAME");
@@ -219,10 +223,10 @@ namespace GZDBHelper
         /// <summary>
         /// 表
         /// </summary>
-        Table,
+        Table = 1,
         /// <summary>
         /// 视图
         /// </summary>
-        View
+        View = 2
     }
 }

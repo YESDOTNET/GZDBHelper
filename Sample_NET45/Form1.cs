@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GZDBHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,8 @@ namespace Sample_NET45
             // 创建数据库对象
             //var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMSSql, null);
             var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, System.Data.SqlClient.SqlClientFactory.Instance, null);
+
+            var data2 = db.GetMSSQLTools().GetObjects_Size(ObjectType.Table);
 
             // 执行SQL语句
             DataTable data = db.GetTable("select database_id,name from sys.databases", "databases", null);
