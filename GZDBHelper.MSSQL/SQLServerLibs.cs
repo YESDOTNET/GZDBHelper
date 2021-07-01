@@ -11,14 +11,14 @@ namespace GZDBHelper
     /// <summary>
     /// MSSQL 数据库 集成
     /// </summary>
-    public class SQLServerLibs
+    public class SQLServerTools
     {
         private IDatabase db;
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="_db"></param>
-        public SQLServerLibs(IDatabase _db)
+        public SQLServerTools(IDatabase _db)
         {
             db = _db;
         }
