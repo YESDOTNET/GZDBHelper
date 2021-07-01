@@ -5,7 +5,7 @@
 	<PropertyGroup>
 		<DocumentationFile>GZDBHelper.MSSQL.xml</DocumentationFile>
 	</PropertyGroup>
-	<PropertyGroup  Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<!--<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Deterministic>false</Deterministic>-->
 		<RootNamespace>GZDBHelper</RootNamespace>

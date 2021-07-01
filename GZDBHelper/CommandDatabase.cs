@@ -148,7 +148,7 @@ namespace GZDBHelper
             }
         }
 
-        private List<T> ExecuteDataReader<T>(CommandType CommandType, string sql, IDbParms parameters, Func<DbDataReader, T> action)
+        private List<T> ExecuteDataList<T>(CommandType CommandType, string sql, IDbParms parameters, Func<DbDataReader, T> action)
         {
             using (var Command = PrepareCommand(sql, parameters, CommandType))
             {
@@ -164,6 +164,59 @@ namespace GZDBHelper
             }
 
         }
+
+        private List<T> ExecuteDataList<T>(CommandType CommandType, string sql, IDbParms parameters) where T : new()
+        {
+            using (var Command = PrepareCommand(sql, parameters, CommandType))
+            {
+                List<T> lst = new List<T>();
+                using (var dr = Command.ExecuteReader())
+                {
+                    while (dr.Read())
+                        lst.Add(dr.ToObject<T>());
+                    //yield return action.Invoke(dr);
+                }
+                //ClearCommandParams();
+                return lst;
+            }
+
+        }
+
+        private T ExecuteDataFirst<T>(CommandType CommandType, string sql, IDbParms parameters, Func<DbDataReader, T> action)
+        {
+            using (var Command = PrepareCommand(sql, parameters, CommandType))
+            {
+                T result = default(T);
+                using (var dr = Command.ExecuteReader())
+                {
+                    if (dr.Read())
+                        result = action.Invoke(dr);
+                    //yield return action.Invoke(dr);
+                }
+                //ClearCommandParams();
+                return result;
+            }
+
+        }
+
+        private T ExecuteDataFirst<T>(CommandType CommandType, string sql, IDbParms parameters) where T : new()
+        {
+            using (var Command = PrepareCommand(sql, parameters, CommandType))
+            {
+                T result = default(T);
+                using (var dr = Command.ExecuteReader())
+                {
+                    if (dr.Read())
+                        result = dr.ToObject<T>();
+                    //yield return action.Invoke(dr);
+                }
+                //ClearCommandParams();
+                return result;
+            }
+
+        }
+
+
 
         private void ExecuteDataReader(CommandType CommandType, string sql, IDbParms parameters, Action<DbDataReader> action)
         {
@@ -254,6 +307,7 @@ namespace GZDBHelper
         {
             return ExecuteNonQuery(CommandType.Text, sql, parameters);
         }
+
         /// <summary>
         /// 执行SQL语句，并返回指定对象集合
         /// </summary>
@@ -262,10 +316,62 @@ namespace GZDBHelper
         /// <param name="parameters">查询参数</param>
         /// <param name="action">转换委托</param>
         /// <returns></returns>
+        [Obsolete("弃用，请改用：ExecuteDataList 方法", true)]
         public List<T> ExecuteDataReader<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action)
         {
-            return ExecuteDataReader(CommandType.Text, sql, parameters, action);
+            return ExecuteDataList(CommandType.Text, sql, parameters, action);
         }
+
+
+        /// <summary>
+        /// 执行SQL语句，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T">要返回的对象类型</typeparam>
+        /// <param name="sql">SQL语句</param>
+        /// <param name="parameters">查询参数</param>
+        /// <param name="action">转换委托</param>
+        /// <returns></returns>
+        public List<T> ExecuteDataList<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action)
+        {
+            return ExecuteDataList(CommandType.Text, sql, parameters, action);
+        }
+
+        /// <summary>
+        /// 执行SQL语句，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T">要返回的对象类型</typeparam>
+        /// <param name="sql">SQL语句</param>
+        /// <param name="parameters">查询参数</param>
+        /// <returns></returns>
+        public List<T> ExecuteDataList<T>(string sql, IDbParms parameters) where T : new()
+        {
+            return ExecuteDataList<T>(CommandType.Text, sql, parameters);
+        }
+        /// <summary>
+        /// 执行SQL语句，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirst<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action)
+        {
+            return ExecuteDataFirst<T>(CommandType.Text, sql, parameters, action);
+        }
+        /// <summary>
+        /// 执行SQL语句，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirst<T>(string sql, IDbParms parameters) where T : new()
+        {
+            return ExecuteDataFirst<T>(CommandType.Text, sql, parameters);
+        }
+
+
         /// <summary>
         /// 执行SQL语句，委托处理结果
         /// </summary>
@@ -276,6 +382,8 @@ namespace GZDBHelper
         {
             ExecuteDataReader(CommandType.Text, sql, parameters, action);
         }
+
+
         /// <summary>
         /// 执行SQL语句，返回第一行第一列
         /// </summary>
@@ -334,6 +442,7 @@ namespace GZDBHelper
         {
             return ExecuteNonQuery(CommandType.StoredProcedure, StoredProcedureName, parameters);
         }
+
         /// <summary>
         /// 执行存储过程，并返回指定对象集合
         /// </summary>
@@ -342,10 +451,60 @@ namespace GZDBHelper
         /// <param name="parameters">查询参数</param>
         /// <param name="action">转换委托</param>
         /// <returns></returns>
+        [Obsolete("弃用，请改用：ExecuteDataListSP 方法", true)]
         public List<T> ExecuteDataReaderSP<T>(string StoredProcedureName, IDbParms parameters, Func<DbDataReader, T> action)
         {
-            return ExecuteDataReader<T>(CommandType.StoredProcedure, StoredProcedureName, parameters, action);
+            return ExecuteDataList<T>(CommandType.StoredProcedure, StoredProcedureName, parameters, action);
         }
+
+        /// <summary>
+        /// 执行存储过程，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T">要返回的对象类型</typeparam>
+        /// <param name="StoredProcedureName">存储过程名称</param>
+        /// <param name="parameters">查询参数</param>
+        /// <param name="action">转换委托</param>
+        /// <returns></returns>
+        public List<T> ExecuteDataListSP<T>(string StoredProcedureName, IDbParms parameters, Func<DbDataReader, T> action)
+        {
+            return ExecuteDataList<T>(CommandType.StoredProcedure, StoredProcedureName, parameters, action);
+        }
+        /// <summary>
+        /// 执行存储过程，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T">要返回的对象类型</typeparam>
+        /// <param name="StoredProcedureName">存储过程名称</param>
+        /// <param name="parameters">查询参数</param>
+        /// <returns></returns>
+        public List<T> ExecuteDataListSP<T>(string StoredProcedureName, IDbParms parameters) where T : new()
+        {
+            return ExecuteDataList<T>(CommandType.StoredProcedure, StoredProcedureName, parameters);
+        }
+
+        /// <summary>
+        /// 执行存储过程，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="StoredProcedureName"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirstSP<T>(string StoredProcedureName, IDbParms parameters, Func<DbDataReader, T> action)
+        {
+            return ExecuteDataFirst<T>(CommandType.StoredProcedure, StoredProcedureName, parameters, action);
+        }
+        /// <summary>
+        /// 执行存储过程，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="StoredProcedureName"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirstSP<T>(string StoredProcedureName, IDbParms parameters) where T : new()
+        {
+            return ExecuteDataFirst<T>(CommandType.StoredProcedure, StoredProcedureName, parameters);
+        }
+
         /// <summary>
         /// 执行存储过程，委托处理结果
         /// </summary>
@@ -646,6 +805,8 @@ namespace GZDBHelper
             if (action != null)
                 action.Invoke(this);
         }
+
+
 
         /*
         /// <summary>

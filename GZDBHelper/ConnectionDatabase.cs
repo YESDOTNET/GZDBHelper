@@ -133,6 +133,7 @@ namespace GZDBHelper
         /// <param name="parameters">查询参数</param>
         /// <param name="action">转换委托</param>
         /// <returns></returns>
+        [Obsolete("弃用，请改用：ExecuteDataList 方法", true)]
         public List<T> ExecuteDataReader<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action)
         {
             using (var connection = CreateConnection())
@@ -144,6 +145,82 @@ namespace GZDBHelper
                 //    yield return r;
             }
         }
+        /// <summary>
+        /// 执行SQL语句，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public List<T> ExecuteDataList<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataList(sql, parameters, action);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReader(sql, parameters, action))
+                //    yield return r;
+            }
+        }
+        /// <summary>
+        /// 执行SQL语句，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public List<T> ExecuteDataList<T>(string sql, IDbParms parameters) where T : new()
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataList<T>(sql, parameters);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReader(sql, parameters, action))
+                //    yield return r;
+            }
+        }
+
+        /// <summary>
+        /// 执行SQL语句，并返回第一条数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirst<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataFirst(sql, parameters, action);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReader(sql, parameters, action))
+                //    yield return r;
+            }
+        }
+        /// <summary>
+        /// 执行SQL语句，并返回第一条数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirst<T>(string sql, IDbParms parameters) where T : new()
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataFirst<T>(sql, parameters);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReader(sql, parameters, action))
+                //    yield return r;
+            }
+        }
+
         /// <summary>
         /// 执行SQL语句，委托处理结果
         /// </summary>
@@ -248,6 +325,7 @@ namespace GZDBHelper
         /// <param name="parameters">查询参数</param>
         /// <param name="action">转换委托</param>
         /// <returns></returns>
+        [Obsolete("弃用，请改用：ExecuteDataListSP 方法", true)]
         public List<T> ExecuteDataReaderSP<T>(string StoredProcedureName, IDbParms parameters, Func<DbDataReader, T> action)
         {
             using (var connection = CreateConnection())
@@ -259,6 +337,82 @@ namespace GZDBHelper
                 //    yield return r;
             }
         }
+        /// <summary>
+        /// 执行存储过程，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="StoredProcedureName"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public List<T> ExecuteDataListSP<T>(string StoredProcedureName, IDbParms parameters, Func<DbDataReader, T> action)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataListSP(StoredProcedureName, parameters, action);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReaderSP(StoredProcedureName, parameters, action))
+                //    yield return r;
+            }
+        }
+        /// <summary>
+        /// 执行存储过程，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="StoredProcedureName"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public List<T> ExecuteDataListSP<T>(string StoredProcedureName, IDbParms parameters) where T : new()
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataListSP<T>(StoredProcedureName, parameters);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReaderSP(StoredProcedureName, parameters, action))
+                //    yield return r;
+            }
+        }
+
+        /// <summary>
+        /// 执行存储过程，并返回第一条数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="StoredProcedureName"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirstSP<T>(string StoredProcedureName, IDbParms parameters, Func<DbDataReader, T> action)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataFirstSP(StoredProcedureName, parameters, action);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReaderSP(StoredProcedureName, parameters, action))
+                //    yield return r;
+            }
+        }
+        /// <summary>
+        /// 执行存储过程，并返回第一条数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="StoredProcedureName"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirstSP<T>(string StoredProcedureName, IDbParms parameters) where T : new()
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataFirstSP<T>(StoredProcedureName, parameters);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReaderSP(StoredProcedureName, parameters, action))
+                //    yield return r;
+            }
+        }
+
         /// <summary>
         /// 执行存储过程，委托处理结果
         /// </summary>

@@ -31,7 +31,7 @@ namespace GZDBHelper
         /// <param name="connectionString">数据库连接字符串</param>
         /// <param name="CustomerDbDataAdapter"></param>
         /// <returns></returns>
-        public static IDatabase CreateDatabase(DbProviderFactory dbProviderFactory, string connectionString, Action<DbDataAdapter> CustomerDbDataAdapter)
+        public static IDatabase CreateDatabase(string connectionString, DbProviderFactory dbProviderFactory, Action<DbDataAdapter> CustomerDbDataAdapter)
         {
             return new ConnectionDatabase(dbProviderFactory, connectionString, CustomerDbDataAdapter);
         }

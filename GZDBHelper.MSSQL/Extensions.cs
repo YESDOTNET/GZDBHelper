@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using GZDBHelper.MSSQL.Model;
 #if NET40 || NET45 || NET46
 using System.Data.SqlClient;
 #else
@@ -79,5 +80,8 @@ namespace GZDBHelper
                 }
             }
         }
+
+
+
     }
 }

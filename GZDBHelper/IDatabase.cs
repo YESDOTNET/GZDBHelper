@@ -48,7 +48,44 @@ namespace GZDBHelper
         /// <param name="parameters">查询参数</param>
         /// <param name="action">转换委托</param>
         /// <returns></returns>
+        [Obsolete("弃用，请改用：ExecuteDataList 方法",true)]
         List<T> ExecuteDataReader<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action);
+
+        /// <summary>
+        /// 执行SQL语句，返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        List<T> ExecuteDataList<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action);
+        /// <summary>
+        /// 执行SQL语句，返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        List<T> ExecuteDataList<T>(string sql, IDbParms parameters) where T : new();
+
+        /// <summary>
+        /// 执行SQL语句，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        T ExecuteDataFirst<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action);
+        /// <summary>
+        /// 执行SQL语句，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        T ExecuteDataFirst<T>(string sql, IDbParms parameters) where T : new();
 
         /// <summary>
         /// 执行SQL语句，委托处理结果
@@ -59,7 +96,7 @@ namespace GZDBHelper
         void ExecuteDataReader(string sql, IDbParms parameters, Action<DbDataReader> action);
 
         /// <summary>
-        /// 执行SQL语句，返回第一行第一列
+        /// 执行SQL语句，返回第一行数据
         /// </summary>
         /// <typeparam name="T">返回类型</typeparam>
         /// <param name="sql">SQL语句</param>
@@ -108,13 +145,52 @@ namespace GZDBHelper
         /// <param name="parameters">查询参数</param>
         /// <param name="action">转换委托</param>
         /// <returns></returns>
+        [Obsolete("弃用，请改用：ExecuteDataListSP 方法", true)]
         List<T> ExecuteDataReaderSP<T>(string StoredProcedureName, IDbParms parameters, Func<DbDataReader, T> action);
+
+        /// <summary>
+        /// 执行存储过程，返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        List<T> ExecuteDataListSP<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action);
+        /// <summary>
+        /// 执行存储过程，返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        List<T> ExecuteDataListSP<T>(string sql, IDbParms parameters) where T : new();
+
+        /// <summary>
+        /// 执行存储过程，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        T ExecuteDataFirstSP<T>(string sql, IDbParms parameters, Func<DbDataReader, T> action);
+        /// <summary>
+        /// 执行存储过程，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        T ExecuteDataFirstSP<T>(string sql, IDbParms parameters) where T : new();
+
         /// <summary>
         /// 执行存储过程，委托处理结果
         /// </summary>
         /// <param name="StoredProcedureName">存储过程名称</param>
         /// <param name="parameters"></param>
         /// <param name="action"></param>
+        [Obsolete("弃用，请改用：ExecuteDataFirstSP 方法", true)]
         void ExecuteDataReaderSP(string StoredProcedureName, IDbParms parameters, Action<DbDataReader> action);
 
         /// <summary>
