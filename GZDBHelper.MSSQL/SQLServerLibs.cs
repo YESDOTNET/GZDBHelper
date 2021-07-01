@@ -150,9 +150,13 @@ namespace GZDBHelper
                 return null;
         }
 
-        DataTable GetTableColumns(string TableName)
+        /// <summary>
+        /// 获得表结构
+        /// </summary>
+        /// <param name="TableName"></param>
+        /// <returns></returns>
+        public List<ModelObjectColumnItem> GetObjectColumns(string TableName)
         {
-
             string sql = @"
                     SELECT  a.object_id AS ObjectID,
                          OBJECT_NAME(a.object_id) AS ObjectName,
@@ -173,9 +177,7 @@ namespace GZDBHelper
                      WHERE    a.object_id =select object_id from sys.objects where name=@tableName
                      ORDER  BY OBJECT_NAME(a.object_id), a.column_id";
 
-            string sqlKeys = @" SELECT a.TABLE_NAME,a.COLUMN_NAME,b.type
-		                FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS a INNER JOIN sys.objects AS b ON a.CONSTRAINT_NAME=b.name
-		                WHERE TABLE_NAME=@tableName ";
+
 
 
             SqlParameterProvider parameters = new SqlParameterProvider();
@@ -186,25 +188,27 @@ namespace GZDBHelper
                 if (string.Equals(obj.TypeName, "timestamp", System.StringComparison.OrdinalIgnoreCase))
                     obj.IsTimestamp = true;
             }
-            db.Excute(_db =>
-            {
 
-                dtColumns = db.GetTable(sql, TableName);
-                dtKeys = db.GetTable(sqlKeys, "Tablekeys");
+            string sqlKeys = @" SELECT a.TABLE_NAME,a.COLUMN_NAME,b.type
+		                FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS a INNER JOIN sys.objects AS b ON a.CONSTRAINT_NAME=b.name
+		                WHERE TABLE_NAME=@tableName ";
+            db.ExecuteDataReader(sqlKeys, parameters, row =>
+            {
+                string type = row.GetFieldValue<string>("type");
+                string columnName = row.GetFieldValue<string>("COLUMN_NAME");
+                if (type == "PK")
+                {
+                    var obj = data.Where(w => w.ColumnName == columnName).FirstOrDefault();
+                    obj.IsPK = true;
+                }
+                if (type == "F")
+                {
+                    var obj = data.Where(w => w.ColumnName == columnName).FirstOrDefault();
+                    obj.IsFK = true;
+                }
             });
 
-            dtColumns.Columns.Add("Flag_PK", typeof(System.String));
-            dtColumns.Columns.Add("Flag_FK", typeof(System.String));
-
-            foreach (DataRow dr in dtColumns.Rows)
-            {
-                dr["Flag_PK"] = dtKeys.Select(String.Format("COLUMN_NAME='{0}' AND type='PK'", dr["ColumnName"])).Length > 0 ? "Y" : "N";
-                dr["Flag_FK"] = dtKeys.Select(String.Format("COLUMN_NAME='{0}' AND type='F'", dr["ColumnName"])).Length > 0 ? "Y" : "N";
-            }
-
-            dtColumns.AcceptChanges();
-
-            return dtColumns;
+            return data;
         }
     }
     /// <summary>
