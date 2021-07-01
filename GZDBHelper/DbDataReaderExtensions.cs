@@ -11,11 +11,20 @@ namespace GZDBHelper
     /// </summary>
     public static class DbDataReaderExtensions
     {
-        //private static T GetFieldValue<T>(this DbDataReader render, string fieldname)
-        //{
-        //    return render.GetFieldValue<T>(render.GetOrdinal(fieldname));
-        //}
-
+        /// <summary>
+        /// 获得字段值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="render"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static T GetFieldValue<T>(this DbDataReader render, string name)
+        {
+            int origin = render.GetOrdinal(name);
+            if (origin >= 0)
+                render.GetFieldValue<T>(origin);
+            return default(T);
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -41,6 +50,7 @@ namespace GZDBHelper
             return data;
 
         }
+   
 
         // <summary>
         /// 对可空类型进行判断转换(*要不然会报错)

@@ -190,7 +190,6 @@ namespace GZDBHelper
         /// <param name="StoredProcedureName">存储过程名称</param>
         /// <param name="parameters"></param>
         /// <param name="action"></param>
-        [Obsolete("弃用，请改用：ExecuteDataFirstSP 方法", true)]
         void ExecuteDataReaderSP(string StoredProcedureName, IDbParms parameters, Action<DbDataReader> action);
 
         /// <summary>
