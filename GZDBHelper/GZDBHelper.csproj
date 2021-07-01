@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netcoreapp3.1;netstandard2.1;net5.0;net40;net45;net46</TargetFrameworks>
+		<TargetFrameworks>net40;netcoreapp3.1;netstandard2.1;net5.0;net45;net46</TargetFrameworks>
 	</PropertyGroup>
 	<PropertyGroup>
 		<DocumentationFile>GZDBHelper.xml</DocumentationFile>
@@ -29,6 +29,9 @@ http://www.yesdotnet.com/archive/gzhelper/1614552868.html</Description>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	  <OutputPath>..\Release\GZDBHelper</OutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net40|AnyCPU'">
+	  <DefineConstants>DEBUG;TRACE;NET40</DefineConstants>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />

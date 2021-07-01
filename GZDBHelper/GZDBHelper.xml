@@ -731,7 +731,7 @@
             数据库操作对象生成工厂
             </summary>
         </member>
-        <member name="M:GZDBHelper.DatabaseFactory.CreateDatabase(System.Data.Common.DbProviderFactory,System.String,System.Action{System.Data.Common.DbDataAdapter})">
+        <member name="M:GZDBHelper.DatabaseFactory.CreateDatabase(System.String,System.Data.Common.DbProviderFactory,System.Action{System.Data.Common.DbDataAdapter})">
             <summary>
             创建数据库对象
             </summary>
@@ -752,6 +752,15 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:GZDBHelper.DbDataReaderExtensions.GetFieldValue``1(System.Data.Common.DbDataReader,System.String)">
+            <summary>
+            获得字段值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="render"></param>
+            <param name="name"></param>
+            <returns></returns>
         </member>
         <member name="M:GZDBHelper.DbDataReaderExtensions.ToObject``1(System.Data.Common.DbDataReader)">
             <summary>
@@ -950,7 +959,7 @@
         </member>
         <member name="M:GZDBHelper.IDatabase.ExecuteDataListSP``1(System.String,GZDBHelper.IDbParms,System.Func{System.Data.Common.DbDataReader,``0})">
             <summary>
-            执行SQL语句，返回数据集合
+            执行存储过程，返回数据集合
             </summary>
             <typeparam name="T"></typeparam>
             <param name="sql"></param>
@@ -960,7 +969,7 @@
         </member>
         <member name="M:GZDBHelper.IDatabase.ExecuteDataListSP``1(System.String,GZDBHelper.IDbParms)">
             <summary>
-            执行SQL语句，返回数据集合
+            执行存储过程，返回数据集合
             </summary>
             <typeparam name="T"></typeparam>
             <param name="sql"></param>
@@ -969,7 +978,7 @@
         </member>
         <member name="M:GZDBHelper.IDatabase.ExecuteDataFirstSP``1(System.String,GZDBHelper.IDbParms,System.Func{System.Data.Common.DbDataReader,``0})">
             <summary>
-            执行SQL语句，返回第一行数据
+            执行存储过程，返回第一行数据
             </summary>
             <typeparam name="T"></typeparam>
             <param name="sql"></param>
@@ -979,7 +988,7 @@
         </member>
         <member name="M:GZDBHelper.IDatabase.ExecuteDataFirstSP``1(System.String,GZDBHelper.IDbParms)">
             <summary>
-            执行SQL语句，返回第一行数据
+            执行存储过程，返回第一行数据
             </summary>
             <typeparam name="T"></typeparam>
             <param name="sql"></param>

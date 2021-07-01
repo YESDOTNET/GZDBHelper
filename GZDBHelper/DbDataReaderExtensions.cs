@@ -20,11 +20,18 @@ namespace GZDBHelper
         /// <returns></returns>
         public static T GetFieldValue<T>(this DbDataReader render, string name)
         {
-            int origin = render.GetOrdinal(name);
-            if (origin >= 0)
-                render.GetFieldValue<T>(origin);
+            int ordinal = render.GetOrdinal(name);
+            if (ordinal >= 0)
+            {
+#if NET40
+                return (T)render.GetValue(ordinal);
+#else
+                return render.GetFieldValue<T>(ordinal);
+#endif
+            }
             return default(T);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -50,7 +57,7 @@ namespace GZDBHelper
             return data;
 
         }
-   
+
 
         // <summary>
         /// 对可空类型进行判断转换(*要不然会报错)

@@ -17,6 +17,13 @@
             <param name="table"></param>
             <param name="batchSize"></param>
         </member>
+        <member name="M:GZDBHelper.Extensions.GetMSSQLTools(GZDBHelper.IDatabase)">
+            <summary>
+            获得 MSSQL 基本工具
+            </summary>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
         <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Collections.Generic.List{Microsoft.Data.SqlClient.SqlBulkCopyColumnMapping},System.Int32)">
             <summary>
             SQL Server 批量插入数据
@@ -25,6 +32,191 @@
             <param name="table"></param>
             <param name="ColumnMappings"></param>
             <param name="batchSize"></param>
+        </member>
+        <member name="T:GZDBHelper.MSSQL.Model.ModelDBItem">
+            <summary>
+            数据库列表对象
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelDBItem.dbid">
+            <summary>
+            数据库编号
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelDBItem.name">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="T:GZDBHelper.MSSQL.Model.ModelDBItem2">
+            <summary>
+            包含文件信息
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelDBItem2.FileData">
+            <summary>
+            数据库文件及大小
+            </summary>
+        </member>
+        <member name="T:GZDBHelper.MSSQL.Model.ModelDBItem2.FileModel">
+            <summary>
+            数据库文件
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelDBItem2.FileModel.FileName">
+            <summary>
+            数据库文件
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelDBItem2.FileModel.FileFullName">
+            <summary>
+            数据库文件路径
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelDBItem2.FileModel.SizeValue">
+            <summary>
+            文件大小（以 8 KB 页为单位）
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelDBItem2.FileModel.SizeDescription">
+            <summary>
+            数据库大小MB
+            </summary>
+        </member>
+        <member name="T:GZDBHelper.MSSQL.Model.ModelObjectItem">
+            <summary>
+            数据库对象模型
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem.ObjectID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem.ObjectName">
+            <summary>
+            对象名称
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem.ObjectType">
+            <summary>
+            对象类型
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem.CreateDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem.ModifyDate">
+            <summary>
+            最后修改时间
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:GZDBHelper.MSSQL.Model.ModelObjectItem2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem2.rows">
+            <summary>
+            数据行数
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem2.reserved">
+            <summary>
+            预留大小
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem2.data">
+            <summary>
+            数据大小
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem2.index_size">
+            <summary>
+            索引大小
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectItem2.unused">
+            <summary>
+            未使用大小
+            </summary>
+        </member>
+        <member name="T:GZDBHelper.MSSQL.Model.ModelObjectColumnItem">
+            <summary>
+            表字段模型
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.ObjectID">
+            <summary>
+            表ID
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.ObjectName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.ColumnName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.TypeID">
+            <summary>
+            字段类型ID
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.TypeName">
+            <summary>
+            字段类型描述
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.MaxLength">
+            <summary>
+            长度
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.Precision">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.Scale">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.Description">
+            <summary>
+            字段描述
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.IsTimestamp">
+            <summary>
+            是否为Timestamp字段
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.IsIdentity">
+            <summary>
+            是否自增字段
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.IsPK">
+            <summary>
+            是否主键
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelObjectColumnItem.IsFK">
+            <summary>
+            是否外键
+            </summary>
         </member>
         <member name="T:GZDBHelper.SqlParameterProvider">
             <summary>
@@ -111,6 +303,65 @@
             <param name="size"></param>
             <param name="value"></param>
             <param name="sourceColumn"></param>
+        </member>
+        <member name="T:GZDBHelper.SQLServerTools">
+            <summary>
+            MSSQL 数据库 集成
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.SQLServerTools.#ctor(GZDBHelper.IDatabase)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="_db"></param>
+        </member>
+        <member name="M:GZDBHelper.SQLServerTools.GetDBList_Simple">
+            <summary>
+            获得数据库列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.SQLServerTools.GetDBList_FileInfo">
+            <summary>
+            获得数据库列表，包含数据库文件信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.SQLServerTools.GetObjects_Simple(GZDBHelper.ObjectType)">
+            <summary>
+            获得数据库对象
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.SQLServerTools.GetObjects_Size(GZDBHelper.ObjectType)">
+            <summary>
+            获得数据库对象，包含大小
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.SQLServerTools.GetObjectColumns(System.String)">
+            <summary>
+            获得表结构
+            </summary>
+            <param name="TableName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GZDBHelper.ObjectType">
+            <summary>
+            数据库对象类型
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ObjectType.Table">
+            <summary>
+            表
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ObjectType.View">
+            <summary>
+            视图
+            </summary>
         </member>
     </members>
 </doc>

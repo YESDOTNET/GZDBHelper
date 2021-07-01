@@ -28,7 +28,7 @@ namespace Sample_NETCoe
 
 
             // 创建数据库对象
-            var db = GZDBHelper.DatabaseFactory.CreateDatabase(SQLiteFactory.Instance, connStr, null);
+            var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, SQLiteFactory.Instance, null);
 
             // 执行SQL获取数据
             DataTable data = db.GetTable("select * from tb_test", "tb_test", null);
@@ -54,7 +54,7 @@ namespace Sample_NETCoe
             // 创建数据库对象
             //var db = GZDBHelper.DatabaseFactory.CreateDatabase(connStr, GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForOracle, null);
 
-            var db = GZDBHelper.DatabaseFactory.CreateDatabase(Oracle.ManagedDataAccess.Client.OracleClientFactory.Instance, connStr, null);
+            var db = GZDBHelper.DatabaseFactory.CreateDatabase( connStr, Oracle.ManagedDataAccess.Client.OracleClientFactory.Instance, null);
 
             DataTable data = db.GetTable("SELECT * from JOBS;", "JOBS", null);
         }

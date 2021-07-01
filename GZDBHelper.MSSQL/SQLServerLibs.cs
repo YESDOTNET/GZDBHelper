@@ -47,8 +47,8 @@ namespace GZDBHelper
                 foreach (var obj in data)
                 {
                     obj.FileData = new List<ModelDBItem2.FileModel>();
-                    string sql = $"select * from [{obj.name}].dbo.sysfiles";
-                    _db.ExecuteDataReader(sql, null, row =>
+                    string sql2 = $"select * from [{obj.name}].dbo.sysfiles";
+                    _db.ExecuteDataReader(sql2, null, row =>
                     {
                         int sizeValue = row.GetFieldValue<int>("size");
                         obj.FileData.Add(new ModelDBItem2.FileModel()

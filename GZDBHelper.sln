@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GZDBHelper.MySql", "GZDBHel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample_NETCoe", "Sample_NETCoe\Sample_NETCoe.csproj", "{E3AD30B0-66B5-4F25-9D0B-2E1276947205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GZDBHelper.ORACLE", "GZDBHelper.ORACLE\GZDBHelper.ORACLE.csproj", "{C1AEF2EB-6953-49AD-AA0D-3F35D9E979AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GZDBHelper.ORACLE", "GZDBHelper.ORACLE\GZDBHelper.ORACLE.csproj", "{C1AEF2EB-6953-49AD-AA0D-3F35D9E979AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{9F474266-9D6E-4F26-ABA2-D4D1189B13D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{C1AEF2EB-6953-49AD-AA0D-3F35D9E979AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1AEF2EB-6953-49AD-AA0D-3F35D9E979AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1AEF2EB-6953-49AD-AA0D-3F35D9E979AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F474266-9D6E-4F26-ABA2-D4D1189B13D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F474266-9D6E-4F26-ABA2-D4D1189B13D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F474266-9D6E-4F26-ABA2-D4D1189B13D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F474266-9D6E-4F26-ABA2-D4D1189B13D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
