@@ -11,9 +11,9 @@
 		<Deterministic>false</Deterministic>-->
     <RootNamespace>GZDBHelper</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2.0.4005.0</AssemblyVersion>
-    <FileVersion>2.0.4005.0</FileVersion>
-    <Version>2.0.4005</Version>
+    <AssemblyVersion>2.0.4006.0</AssemblyVersion>
+    <FileVersion>2.0.4006.0</FileVersion>
+    <Version>2.0.4006</Version>
     <Authors>GarsonZhang</Authors>
     <Company>南阳君创科技有限公司</Company>
     <Product>C#.NET 数据库访问组件</Product>
