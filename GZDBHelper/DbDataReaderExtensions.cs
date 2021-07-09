@@ -69,7 +69,7 @@ namespace GZDBHelper
         {
             if (conversionType.IsGenericType && conversionType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
             {
-                if (value == null)
+                if (value == null || value==DBNull.Value)
                     return null;
                 System.ComponentModel.NullableConverter nullableConverter = new System.ComponentModel.NullableConverter(conversionType);
                 conversionType = nullableConverter.UnderlyingType;
