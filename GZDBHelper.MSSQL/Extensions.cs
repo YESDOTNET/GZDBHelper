@@ -15,6 +15,28 @@ namespace GZDBHelper
     /// </summary>
     public static class Extensions
     {
+      
+
+        /// <summary>
+        /// 获得 MSSQL 基本工具
+        /// </summary>
+        /// <param name="current"></param>
+        /// <returns></returns>
+        public static SQLServerTools GetMSSQLTools(this IDatabase current)
+        {
+            return new SQLServerTools(current);
+        }
+
+        static SqlBulkCopy CreateSqlBulkCopy(SqlConnection conn, SqlTransaction tran)
+        {
+            if (tran != null)
+            {
+                return new SqlBulkCopy(tran.Connection, SqlBulkCopyOptions.Default, tran);
+            }
+            else
+                return new SqlBulkCopy(conn);
+        }
+
         /// <summary>
         /// SQL Server 批量插入数据
         /// </summary>
@@ -38,26 +60,6 @@ namespace GZDBHelper
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// 获得 MSSQL 基本工具
-        /// </summary>
-        /// <param name="current"></param>
-        /// <returns></returns>
-        public static SQLServerTools GetMSSQLTools(this IDatabase current)
-        {
-            return new SQLServerTools(current);
-        }
-
-        static SqlBulkCopy CreateSqlBulkCopy(SqlConnection conn, SqlTransaction tran)
-        {
-            if (tran != null)
-            {
-                return new SqlBulkCopy(tran.Connection, SqlBulkCopyOptions.Default, tran);
-            }
-            else
-                return new SqlBulkCopy(conn);
         }
 
         /// <summary>
