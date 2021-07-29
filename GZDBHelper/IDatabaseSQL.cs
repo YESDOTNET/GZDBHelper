@@ -74,7 +74,7 @@ namespace GZDBHelper
         void ExecuteDataReader(string sql, IDbParms parameters, Action<DbDataReader> action);
 
         /// <summary>
-        /// 执行SQL语句，返回第一行数据
+        /// 执行SQL语句，返回第一行第一列
         /// </summary>
         /// <typeparam name="T">返回类型</typeparam>
         /// <param name="sql">SQL语句</param>
