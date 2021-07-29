@@ -97,6 +97,7 @@ namespace GZDBHelper
         public void AddParameter(string parameterName, object value)
         {
             SqlParameter parm = new SqlParameter(parameterName, value);
+            
             Params.Add(parm);
         }
         /// <summary>

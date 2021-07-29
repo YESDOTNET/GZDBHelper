@@ -29,6 +29,7 @@ namespace GZFramework.DB.Core
         public void AddParameter(string ParameterName, object Value)
         {
             lst.Add(new UserParameter(ParameterName, Value));
+
         }
         public void AddParameter(string ParameterName, int Size, object Value)
         {

@@ -4,10 +4,51 @@
         <name>GZDBHelper.MSSQL</name>
     </assembly>
     <members>
+        <member name="T:GZDBHelper.Attributes.CommandParameterAttribute">
+            <summary>
+            命令参数
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.Attributes.CommandParameterAttribute.SPName">
+            <summary>
+            参数名称,不包含@符号
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.Attributes.CommandParameterAttribute.DbType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.Attributes.CommandParameterAttribute.Size">
+            <summary>
+            长度
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.Attributes.CommandParameterAttribute.Direction">
+            <summary>
+            参数类型
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.Attributes.CommandParameterAttribute.#ctor(System.Data.SqlDbType,System.Int32,System.Data.ParameterDirection,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dbType"></param>
+            <param name="size"></param>
+            <param name="direction"></param>
+            <param name="SPName">参数名称，不包含@符号，可以为空</param>
+        </member>
         <member name="T:GZDBHelper.Extensions">
             <summary>
             扩展
             </summary>
+        </member>
+        <member name="M:GZDBHelper.Extensions.GetMSSQLTools(GZDBHelper.IDatabase)">
+            <summary>
+            获得 MSSQL 基本工具
+            </summary>
+            <param name="current"></param>
+            <returns></returns>
         </member>
         <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Int32)">
             <summary>
@@ -17,14 +58,7 @@
             <param name="table"></param>
             <param name="batchSize"></param>
         </member>
-        <member name="M:GZDBHelper.Extensions.GetMSSQLTools(GZDBHelper.IDatabase)">
-            <summary>
-            获得 MSSQL 基本工具
-            </summary>
-            <param name="current"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Collections.Generic.List{Microsoft.Data.SqlClient.SqlBulkCopyColumnMapping},System.Int32)">
+        <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Collections.Generic.List{System.Data.SqlClient.SqlBulkCopyColumnMapping},System.Int32)">
             <summary>
             SQL Server 批量插入数据
             </summary>
@@ -218,6 +252,28 @@
             是否外键
             </summary>
         </member>
+        <member name="T:GZDBHelper.ProcedureBase">
+            <summary>
+            存储过程基类
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.ProcedureBase.SPName">
+            <summary>
+            存储过程名称
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.ProcedureBase.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="spname"></param>
+        </member>
+        <member name="M:GZDBHelper.ProcedureBase.GetParameters">
+            <summary>
+            获得存储过程参数
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GZDBHelper.SqlParameterProvider">
             <summary>
             查询参数生成基类
@@ -361,6 +417,11 @@
         <member name="F:GZDBHelper.ObjectType.View">
             <summary>
             视图
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ObjectType.Procedure">
+            <summary>
+            存储过程
             </summary>
         </member>
     </members>

@@ -564,6 +564,116 @@ namespace GZDBHelper
 
         #endregion
 
+        #region 存储过程 IProcedure
+        /// <summary>
+        ///  执行存储过程，并返回受影响行数
+        /// </summary>
+        /// <param name="procedure">查询参数</param>
+        /// <returns></returns>
+        public int ExecuteNonQuerySP(IProcedure procedure)
+        {
+            return ExecuteNonQuery(CommandType.StoredProcedure, procedure.SPName, procedure.GetParameters());
+        }
+
+
+        /// <summary>
+        /// 执行存储过程，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T">要返回的对象类型</typeparam>
+        /// <param name="procedure">查询参数</param>
+        /// <param name="action">转换委托</param>
+        /// <returns></returns>
+        public List<T> ExecuteDataListSP<T>(IProcedure procedure, Func<DbDataReader, T> action)
+        {
+            return ExecuteDataList<T>(CommandType.StoredProcedure, procedure.SPName, procedure.GetParameters(), action);
+        }
+        /// <summary>
+        /// 执行存储过程，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T">要返回的对象类型</typeparam>
+        /// <param name="procedure">查询参数</param>
+        /// <returns></returns>
+        public List<T> ExecuteDataListSP<T>(IProcedure procedure) where T : new()
+        {
+            return ExecuteDataList<T>(CommandType.StoredProcedure, procedure.SPName, procedure.GetParameters());
+        }
+
+        /// <summary>
+        /// 执行存储过程，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="procedure">查询参数</param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirstSP<T>(IProcedure procedure, Func<DbDataReader, T> action)
+        {
+            return ExecuteDataFirst<T>(CommandType.StoredProcedure, procedure.SPName, procedure.GetParameters(), action);
+        }
+        /// <summary>
+        /// 执行存储过程，返回第一行数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="procedure">查询参数</param>
+        /// <returns></returns>
+        public T ExecuteDataFirstSP<T>(IProcedure procedure) where T : new()
+        {
+            return ExecuteDataFirst<T>(CommandType.StoredProcedure, procedure.SPName, procedure.GetParameters());
+        }
+
+        /// <summary>
+        /// 执行存储过程，委托处理结果
+        /// </summary>
+        /// <param name="procedure">查询参数</param>
+        /// <param name="action"></param>
+        public void ExecuteDataReaderSP(IProcedure procedure, Action<DbDataReader> action)
+        {
+            ExecuteDataReader(CommandType.StoredProcedure, procedure.SPName, procedure.GetParameters(), action);
+        }
+
+        /// <summary>
+        /// 执行存储过程，返回第一行第一列
+        /// </summary>
+        /// <typeparam name="T">返回类型</typeparam>
+        /// <param name="procedure">查询参数</param>
+        /// <returns></returns>
+        public T ExecuteScalarSP<T>(IProcedure procedure)
+        {
+            return ExecuteScalar<T>(CommandType.StoredProcedure, procedure.SPName, procedure.GetParameters());
+        }
+        /// <summary>
+        /// 执行存储过程，返回DataTable结构
+        /// </summary>
+        /// <param name="procedure">查询参数</param>
+        /// <param name="TableName">表名</param>
+        /// <returns></returns>
+        public DataTable GetTableSP(IProcedure procedure, string TableName)
+        {
+            return GetTable(CommandType.StoredProcedure, TableName, procedure.SPName, procedure.GetParameters());
+        }
+
+        /// <summary>
+        /// 执行存储过程，返回DataSet结构
+        /// </summary>
+        /// <param name="procedure">查询参数</param>
+        /// <returns></returns>
+        public DataSet GetDataSetSP(IProcedure procedure)
+        {
+            return GetDataSet(CommandType.StoredProcedure, procedure.SPName, procedure.GetParameters());
+        }
+
+
+        /// <summary>
+        /// 执行存储过程，判断是否有返回数据
+        /// </summary>
+        /// <param name="procedure">查询参数</param>
+        /// <returns></returns>
+        public bool HasRowSP(IProcedure procedure)
+        {
+            return HasRow(CommandType.StoredProcedure, procedure.SPName, procedure.GetParameters());
+        }
+
+        #endregion
+
         /// <summary>
         /// 更新表格数据到数据库
         /// </summary>

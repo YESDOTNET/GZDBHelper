@@ -83,6 +83,9 @@ namespace GZDBHelper
                 case ObjectType.View:
                     xtype.Add("V");
                     break;
+                case ObjectType.Procedure:
+                    xtype.Add("P");
+                    break;
             }
             if (xtype.Count > 0)
             {
@@ -111,6 +114,9 @@ namespace GZDBHelper
                     break;
                 case ObjectType.View:
                     xtype.Add("V");
+                    break;
+                case ObjectType.Procedure:
+                    xtype.Add("P");
                     break;
             }
             if (xtype.Count > 0)
@@ -227,6 +233,10 @@ namespace GZDBHelper
         /// <summary>
         /// 视图
         /// </summary>
-        View = 2
+        View = 2,
+        /// <summary>
+        /// 存储过程
+        /// </summary>
+        Procedure = 3
     }
 }

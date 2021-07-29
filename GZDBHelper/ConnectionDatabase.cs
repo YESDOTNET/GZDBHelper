@@ -491,6 +491,166 @@ namespace GZDBHelper
         }
         #endregion 存储过程
 
+        #region 存储过程 IProcedure
+        /// <summary>
+        ///  执行存储过程，并返回受影响行数
+        /// </summary>
+        /// <param name="procedure">存储过程对象</param>
+        /// <returns></returns>
+        public int ExecuteNonQuerySP(IProcedure procedure)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteNonQuerySP(procedure.SPName, procedure.GetParameters());
+            }
+        }
+
+        /// <summary>
+        /// 执行存储过程，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="procedure"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public List<T> ExecuteDataListSP<T>(IProcedure procedure, Func<DbDataReader, T> action)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataListSP(procedure.SPName, procedure.GetParameters(), action);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReaderSP(StoredProcedureName, parameters, action))
+                //    yield return r;
+            }
+        }
+        /// <summary>
+        /// 执行存储过程，并返回数据集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="procedure"></param>
+        /// <returns></returns>
+        public List<T> ExecuteDataListSP<T>(IProcedure procedure) where T : new()
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataListSP<T>(procedure.SPName, procedure.GetParameters());
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReaderSP(StoredProcedureName, parameters, action))
+                //    yield return r;
+            }
+        }
+
+        /// <summary>
+        /// 执行存储过程，并返回第一条数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="procedure"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirstSP<T>(IProcedure procedure, Func<DbDataReader, T> action)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataFirstSP(procedure.SPName, procedure.GetParameters(), action);
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReaderSP(StoredProcedureName, parameters, action))
+                //    yield return r;
+            }
+        }
+        /// <summary>
+        /// 执行存储过程，并返回第一条数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="procedure"></param>
+        /// <returns></returns>
+        public T ExecuteDataFirstSP<T>(IProcedure procedure) where T : new()
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteDataFirstSP<T>(procedure.SPName, procedure.GetParameters());
+                // 这里一定要用yield，这样可以延迟执行，直接用return db.ExecuteDataReader(sql, parameters, action)在执行dr.Read()的时候，cmd对象早就释放掉了
+                //foreach (var r in db.ExecuteDataReaderSP(StoredProcedureName, parameters, action))
+                //    yield return r;
+            }
+        }
+
+        /// <summary>
+        /// 执行存储过程，委托处理结果
+        /// </summary>
+        /// <param name="procedure"></param>
+        /// <param name="action"></param>
+        public void ExecuteDataReaderSP(IProcedure procedure, Action<DbDataReader> action)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                db.ExecuteDataReaderSP(procedure.SPName, procedure.GetParameters(), action);
+            }
+        }
+        /// <summary>
+        /// 执行存储过程，返回DataTable结构
+        /// </summary>
+        /// <param name="procedure"></param>
+        /// <param name="TableName">表名</param>
+        /// <returns></returns>
+        public DataTable GetTableSP(IProcedure procedure, string TableName)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.GetTableSP(procedure.SPName, TableName, procedure.GetParameters());
+            }
+        }
+        /// <summary>
+        /// 执行存储过程，返回DataSet结构
+        /// </summary>
+        /// <param name="procedure">查询参数</param>
+        /// <returns></returns>
+        public DataSet GetDataSetSP(IProcedure procedure)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.GetDataSetSP(procedure.SPName, procedure.GetParameters());
+            }
+        }
+
+        /// <summary>
+        /// 执行存储过程，返回第一行第一列
+        /// </summary>
+        /// <typeparam name="T">返回类型</typeparam>
+        /// <param name="procedure">查询参数</param>
+        /// <returns></returns>
+        public T ExecuteScalarSP<T>(IProcedure procedure)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.ExecuteScalarSP<T>(procedure.SPName, procedure.GetParameters());
+            }
+
+        }
+
+
+        /// <summary>
+        /// 执行存储过程，判断是否有返回数据
+        /// </summary>
+        /// <param name="procedure">查询参数</param>
+        /// <returns></returns>
+        public bool HasRowSP(IProcedure procedure)
+        {
+            using (var connection = CreateConnection())
+            {
+                var db = GetCommandDataBase(connection);
+                return db.HasRowSP(procedure.SPName, procedure.GetParameters());
+            }
+        }
+        #endregion 存储过程
+
         /// <summary>
         /// 外部在同一链接下执行，如果要获取输出的参数值，用此方法执行，配合GetParamValue执行，或者多次提交
         /// </summary>
