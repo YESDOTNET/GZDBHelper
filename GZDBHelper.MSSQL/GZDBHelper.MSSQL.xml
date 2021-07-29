@@ -29,14 +29,14 @@
             参数类型
             </summary>
         </member>
-        <member name="M:GZDBHelper.Attributes.CommandParameterAttribute.#ctor(System.Data.SqlDbType,System.Int32,System.Data.ParameterDirection,System.String)">
+        <member name="M:GZDBHelper.Attributes.CommandParameterAttribute.#ctor(System.String,System.Data.SqlDbType,System.Int32,System.Data.ParameterDirection)">
             <summary>
             构造函数
             </summary>
+            <param name="SPName">参数名称，不包含@符号</param>
             <param name="dbType"></param>
             <param name="size"></param>
             <param name="direction"></param>
-            <param name="SPName">参数名称，不包含@符号，可以为空</param>
         </member>
         <member name="T:GZDBHelper.Extensions">
             <summary>
@@ -252,23 +252,58 @@
             是否外键
             </summary>
         </member>
-        <member name="T:GZDBHelper.ProcedureBase">
+        <member name="T:GZDBHelper.MSSQL.Model.ModelParameterItem">
+            <summary>
+            存储过程参数
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelParameterItem.ObjectID">
+            <summary>
+            对象ID
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelParameterItem.ObjectName">
+            <summary>
+            对象名称
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelParameterItem.ParamName">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelParameterItem.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelParameterItem.Size">
+            <summary>
+            长度
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.MSSQL.Model.ModelParameterItem.Is_OutPut">
+            <summary>
+            是否为OutPut参数
+            </summary>
+        </member>
+        <member name="T:GZDBHelper.SQLProcedureBase">
             <summary>
             存储过程基类
             </summary>
         </member>
-        <member name="P:GZDBHelper.ProcedureBase.SPName">
+        <member name="P:GZDBHelper.SQLProcedureBase.SPName">
             <summary>
             存储过程名称
             </summary>
         </member>
-        <member name="M:GZDBHelper.ProcedureBase.#ctor(System.String)">
+        <member name="M:GZDBHelper.SQLProcedureBase.#ctor(System.String)">
             <summary>
             构造函数
             </summary>
             <param name="spname"></param>
         </member>
-        <member name="M:GZDBHelper.ProcedureBase.GetParameters">
+        <member name="M:GZDBHelper.SQLProcedureBase.GetParameters">
             <summary>
             获得存储过程参数
             </summary>
@@ -402,6 +437,13 @@
             获得表结构
             </summary>
             <param name="TableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.SQLServerTools.GetFunctionParameters(System.String)">
+            <summary>
+            获得存储过程或函数的参数
+            </summary>
+            <param name="FunctionName"></param>
             <returns></returns>
         </member>
         <member name="T:GZDBHelper.ObjectType">

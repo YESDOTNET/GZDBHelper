@@ -220,6 +220,31 @@ namespace GZDBHelper
 
             return data;
         }
+
+        /// <summary>
+        /// 获得存储过程或函数的参数
+        /// </summary>
+        /// <param name="FunctionName"></param>
+        /// <returns></returns>
+        public List<ModelParameterItem> GetFunctionParameters(string FunctionName)
+        {
+            string sql = @"SELECT sp.object_Id as ObjectID, sp.name as FunctionName,
+            isnull(param.name,'')as ObjectName,isnull(usrt.name,'') AS [DataType],
+            ISNULL(baset.name, '') AS [SystemType], CAST(CASE when baset.name is null then 0  WHEN baset.name IN ('nchar', 'nvarchar') AND param.max_length <> -1 THEN param.max_length/2 ELSE param.max_length END AS int) AS [Size],
+            '' as ParamReamrk,isnull(parameter_id,0) as SortId,
+			param.is_output
+FROM sys.objects AS sp  INNER JOIN sys.schemas b ON sp.schema_id = b.schema_id
+            left outer JOIN sys.all_parameters AS param ON param.object_id=sp.object_Id
+            LEFT OUTER JOIN sys.types AS usrt ON usrt.user_type_id = param.user_type_id
+            LEFT OUTER JOIN sys.types AS baset ON (baset.user_type_id = param.system_type_id and baset.user_type_id = baset.system_type_id) or ((baset.system_type_id = param.system_type_id) and (baset.user_type_id = param.user_type_id) and (baset.is_user_defined = 0) and (baset.is_assembly_type = 1)) 
+           LEFT OUTER JOIN sys.extended_properties E ON sp.object_id = E.major_id
+WHERE sp.TYPE in ('FN', 'IF', 'TF','P')  AND ISNULL(sp.is_ms_shipped, 0) = 0 AND ISNULL(E.name, '') <> 'microsoft_database_tools_support' and sp.name=@SPName";
+
+            SqlParameterProvider parameters = new SqlParameterProvider();
+            parameters.AddParameter("@SPName", SqlDbType.VarChar, FunctionName);
+            var data = db.ExecuteDataList<ModelParameterItem>(sql, parameters);
+            return data;
+        }
     }
     /// <summary>
     /// 数据库对象类型

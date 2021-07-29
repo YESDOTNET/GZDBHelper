@@ -32,11 +32,11 @@ namespace GZDBHelper.Attributes
         /// <summary>
         /// 构造函数
         /// </summary>
+        /// <param name="SPName">参数名称，不包含@符号</param>
         /// <param name="dbType"></param>
         /// <param name="size"></param>
         /// <param name="direction"></param>
-        /// <param name="SPName">参数名称，不包含@符号，可以为空</param>
-        public CommandParameterAttribute(SqlDbType dbType, int size, ParameterDirection direction = ParameterDirection.Input, string SPName = "")
+        public CommandParameterAttribute(string SPName,SqlDbType dbType, int size, ParameterDirection direction = ParameterDirection.Input)
         {
             this.DbType = dbType;
             this.Size = size;
