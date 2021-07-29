@@ -405,14 +405,6 @@
             执行超时
             </summary>
         </member>
-        <member name="M:GZDBHelper.ConnectionDatabase.#ctor(System.String,System.String,System.Action{System.Data.Common.DbDataAdapter})">
-            <summary>
-            构造函数
-            </summary>
-            <param name="connectionString">数据库连接字符串</param>
-            <param name="providerName">指定提供程序名称的 System.Data.Common.DbProviderFactory 的一个实例</param>
-            /// <param name="cAdapter"></param>
-        </member>
         <member name="M:GZDBHelper.ConnectionDatabase.#ctor(System.Data.Common.DbProviderFactory,System.String,System.Action{System.Data.Common.DbDataAdapter})">
             <summary>
             构造函数
@@ -678,7 +670,16 @@
             <param name="procedure"></param>
             <returns></returns>
         </member>
-        <member nam�过程，返回DataTable结构
+        <member name="M:GZDBHelper.ConnectionDatabase.ExecuteDataReaderSP(GZDBHelper.IProcedure,System.Action{System.Data.Common.DbDataReader})">
+            <summary>
+            执行存储过程，委托处理结果
+            </summary>
+            <param name="procedure"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.GetTableSP(GZDBHelper.IProcedure,System.String)">
+            <summary>
+            执行存储过程，返回DataTable结构
             </summary>
             <param name="procedure"></param>
             <param name="TableName">表名</param>
@@ -1400,58 +1401,6 @@
             <typeparam name="T">实体类</typeparam>
         </member>
         <member name="M:GZDBHelper.ModelHandler`1.FillModel(System.Data.DataSet)">
-            <summary>
-            填充对象列表：用DataSet的第一个表填充实体类
-            </summary>
-            <param name="ds">DataSet</param>
-            <returns></returns>
-        </member>
-        <member name="M:GZDBHelper.ModelHandler`1.FillModel(System.Data.DataSet,System.Int32)">
-            <summary>  
-            填充对象列表：用DataSet的第index个表填充实体类
-            </summary>  
-        </member>
-        <member name="M:GZDBHelper.ModelHandler`1.FillModel(System.Data.DataTable)">
-            <summary>  
-            填充对象列表：用DataTable填充实体类
-            </summary>  
-        </member>
-        <member name="M:GZDBHelper.ModelHandler`1.FillModel(System.Data.DataRow)">
-            <summary>  
-            填充对象：用DataRow填充实体类
-            </summary>  
-        </member>
-        <member name="M:GZDBHelper.ModelHandler`1.FillDataSet(System.Collections.Generic.List{`0})">
-            <summary>
-            实体类转换成DataSet
-            </summary>
-            <param name="modelList">实体类列表</param>
-            <returns></returns>
-        </member>
-        <member name="M:GZDBHelper.ModelHandler`1.FillDataTable(System.Collections.Generic.List{`0})">
-            <summary>
-            实体类转换成DataTable
-            </summary>
-            <param name="modelList">实体类列表</param>
-            <returns></returns>
-        </member>
-        <member name="M:GZDBHelper.ModelHandler`1.CreateData(`0)">
-            <summary>
-            根据实体类得到表结构
-            </summary>
-            <param name="model">实体类</param>
-            <returns></returns>
-        </member>
-        <member name="M:GZDBHelper._log.Add(System.String,System.String)">
-            <summary>
-            写日志，指定日志文件
-            </summary>
-            <param name="File"></param>
-            <param name="Msg"></param>
-        </member>
-    </members>
-</doc>
-)">
             <summary>
             填充对象列表：用DataSet的第一个表填充实体类
             </summary>

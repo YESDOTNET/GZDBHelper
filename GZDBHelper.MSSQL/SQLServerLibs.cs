@@ -232,7 +232,7 @@ namespace GZDBHelper
             isnull(param.name,'')as ObjectName,isnull(usrt.name,'') AS [DataType],
             ISNULL(baset.name, '') AS [SystemType], CAST(CASE when baset.name is null then 0  WHEN baset.name IN ('nchar', 'nvarchar') AND param.max_length <> -1 THEN param.max_length/2 ELSE param.max_length END AS int) AS [Size],
             '' as ParamReamrk,isnull(parameter_id,0) as SortId,
-			param.is_output
+			is_output=case when param.is_output is null then 0 else param.is_output end
 FROM sys.objects AS sp  INNER JOIN sys.schemas b ON sp.schema_id = b.schema_id
             left outer JOIN sys.all_parameters AS param ON param.object_id=sp.object_Id
             LEFT OUTER JOIN sys.types AS usrt ON usrt.user_type_id = param.user_type_id
