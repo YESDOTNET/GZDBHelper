@@ -287,28 +287,6 @@
             是否为OutPut参数
             </summary>
         </member>
-        <member name="T:GZDBHelper.SQLProcedureBase">
-            <summary>
-            存储过程基类
-            </summary>
-        </member>
-        <member name="P:GZDBHelper.SQLProcedureBase.SPName">
-            <summary>
-            存储过程名称
-            </summary>
-        </member>
-        <member name="M:GZDBHelper.SQLProcedureBase.#ctor(System.String)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="spname"></param>
-        </member>
-        <member name="M:GZDBHelper.SQLProcedureBase.GetParameters">
-            <summary>
-            获得存储过程参数
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:GZDBHelper.SqlParameterProvider">
             <summary>
             查询参数生成基类
@@ -394,6 +372,28 @@
             <param name="size"></param>
             <param name="value"></param>
             <param name="sourceColumn"></param>
+        </member>
+        <member name="T:GZDBHelper.SQLProcedureBase">
+            <summary>
+            存储过程基类
+            </summary>
+        </member>
+        <member name="P:GZDBHelper.SQLProcedureBase.SPName">
+            <summary>
+            存储过程名称
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.SQLProcedureBase.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="spname"></param>
+        </member>
+        <member name="M:GZDBHelper.SQLProcedureBase.GetParameters">
+            <summary>
+            获得存储过程参数
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:GZDBHelper.SQLServerTools">
             <summary>

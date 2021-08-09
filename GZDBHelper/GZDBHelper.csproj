@@ -25,7 +25,7 @@ http://www.yesdotnet.com/archive/gzhelper/1614552868.html</Description>
 		<Company>南阳君创科技有限公司</Company>
 		<Product>C#.NET 数据库访问组件</Product>
 		<Authors>GarsonZhang</Authors>
-		<PackageIcon>logo.png</PackageIcon>
+		<PackageIconUrl>https://www.yesdotnet.com/images/logo.png</PackageIconUrl>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 	  <OutputPath>..\Release\GZDBHelper</OutputPath>

@@ -1,44 +1,48 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;netstandard2.1;net5.0;net40;net45;net46</TargetFrameworks>
-  </PropertyGroup>
-  <PropertyGroup>
-    <DocumentationFile>GZDBHelper.ORACLE.xml</DocumentationFile>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <!--<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp3.1;netstandard2.1;net5.0;net40;net45;net46</TargetFrameworks>
+	</PropertyGroup>
+	<PropertyGroup>
+		<DocumentationFile>GZDBHelper.ORACLE.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<!--<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<Deterministic>false</Deterministic>-->
-    <RootNamespace>GZDBHelper</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2.0.4010.0</AssemblyVersion>
-    <FileVersion>2.0.4010.0</FileVersion>
-    <Version>2.0.4010</Version>
-    <Authors>GarsonZhang</Authors>
-    <Company>南阳君创科技有限公司</Company>
-    <Product>C#.NET 数据库访问组件</Product>
-    <Description>C#.NET 开源数据库访问组件，支持各种主流数据库
-http://www.yesdotnet.com/archive/gzhelper/1614552868.html</Description>
-    <PackageReleaseNotes>C#.NET 开源数据库访问组件，支持各种主流数据库
-http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageReleaseNotes>
-    <PackageProjectUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageProjectUrl>
-    <RepositoryUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</RepositoryUrl>
-    <PackageIcon>logo.png</PackageIcon>
-  </PropertyGroup>
-  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <None Include="..\logo.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Oracle.ManagedDataAccess" Version="19.11.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GZDBHelper\GZDBHelper.csproj" />
-  </ItemGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\Release\GZDBHelper.ORACLE</OutputPath>
-  </PropertyGroup>
+		<RootNamespace>GZDBHelper</RootNamespace>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<AssemblyVersion>2.0.4010.0</AssemblyVersion>
+		<FileVersion>2.0.4010.0</FileVersion>
+		<Version>2.0.4010</Version>
+		<Authors>GarsonZhang</Authors>
+		<Company>南阳君创科技有限公司</Company>
+		<Product>C#.NET 数据库访问组件</Product>
+		<Description>
+			C#.NET 开源数据库访问组件，支持各种主流数据库
+			http://www.yesdotnet.com/archive/gzhelper/1614552868.html
+		</Description>
+		<PackageReleaseNotes>
+			C#.NET 开源数据库访问组件，支持各种主流数据库
+			http://www.yesdotnet.com/archive/gzhelper/1614552868.html
+		</PackageReleaseNotes>
+		<PackageProjectUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</PackageProjectUrl>
+		<RepositoryUrl>http://www.yesdotnet.com/archive/gzhelper/1614552868.html</RepositoryUrl>
+		<PackageIconUrl>https://www.yesdotnet.com/images/logo.png</PackageIconUrl>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<None Include="..\logo.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Oracle.ManagedDataAccess" Version="19.11.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\GZDBHelper\GZDBHelper.csproj" />
+	</ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<OutputPath>..\Release\GZDBHelper.ORACLE</OutputPath>
+	</PropertyGroup>
 
 </Project>
