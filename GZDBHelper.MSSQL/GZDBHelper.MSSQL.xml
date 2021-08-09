@@ -58,7 +58,7 @@
             <param name="table"></param>
             <param name="batchSize"></param>
         </member>
-        <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Collections.Generic.List{System.Data.SqlClient.SqlBulkCopyColumnMapping},System.Int32)">
+        <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Collections.Generic.List{Microsoft.Data.SqlClient.SqlBulkCopyColumnMapping},System.Int32)">
             <summary>
             SQL Server 批量插入数据
             </summary>
