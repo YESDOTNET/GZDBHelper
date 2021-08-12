@@ -46,7 +46,7 @@
             事务
             </summary>
         </member>
-        <member name="P:GZDBHelper.CommandDatabase.CommandTimeout">
+        <member name="P:GZDBHelper.CommandDatabase.CommandTimeOut">
             <summary>
             命令i超时时间
             </summary>
@@ -400,10 +400,23 @@
             获得事务
             </summary>
         </member>
-        <member name="P:GZDBHelper.ConnectionDatabase.CommandTimeout">
+        <member name="P:GZDBHelper.ConnectionDatabase.CommandTimeOut">
             <summary>
-            执行超时
+            执行超时，单位秒，默认30秒
             </summary>
+        </member>
+        <member name="P:GZDBHelper.ConnectionDatabase.ConnectionTimeOut">
+            <summary>
+            连接超时，单位秒，默认15秒
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.ConnectionDatabase.#ctor(System.String,System.String,System.Action{System.Data.Common.DbDataAdapter})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="connectionString">数据库连接字符串</param>
+            <param name="providerName">指定提供程序名称的 System.Data.Common.DbProviderFactory 的一个实例</param>
+            /// <param name="cAdapter"></param>
         </member>
         <member name="M:GZDBHelper.ConnectionDatabase.#ctor(System.Data.Common.DbProviderFactory,System.String,System.Action{System.Data.Common.DbDataAdapter})">
             <summary>
@@ -423,14 +436,15 @@
             <summary>
             获得数据库操作命令对象
             </summary>
-            <param name="cmd"></param>
+            <param name="conn"></param>
             <returns></returns>
         </member>
         <member name="M:GZDBHelper.ConnectionDatabase.GetCommandDataBase(System.Data.Common.DbConnection,System.Data.Common.DbTransaction)">
             <summary>
             获得数据库操作命令对象
             </summary>
-            <param name="cmd"></param>
+            <param name="conn"></param>
+            <param name="trans"></param>
             <returns></returns>
         </member>
         <member name="M:GZDBHelper.ConnectionDatabase.ExecuteNonQuery(System.String,GZDBHelper.IDbParms)">
@@ -787,6 +801,36 @@
             数据库链接字符串生成类
             </summary>
         </member>
+        <member name="T:GZDBHelper.ConnectionStrings.ProviderNames">
+            <summary>
+            参考Provider名称
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForAccess">
+            <summary>
+            Access ProviderName
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForSqlite">
+            <summary>
+            Sqlite ProviderName
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForOracle">
+            <summary>
+            Oracle ProviderName
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMSSql">
+            <summary>
+            MSSql ProviderName
+            </summary>
+        </member>
+        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMySql">
+            <summary>
+            MySQL ProviderName
+            </summary>
+        </member>
         <member name="M:GZDBHelper.ConnectionStrings.BuildMSSQLConnectionString(System.String,System.String,System.String,System.String)">
             <summary>
             生成MSSQL链接字符串  Server = {0};Database = {1};User ID = {2};Password = {3};Trusted_Connection = False
@@ -886,6 +930,15 @@
             <summary>
             数据库操作对象生成工厂
             </summary>
+        </member>
+        <member name="M:GZDBHelper.DatabaseFactory.CreateDatabase(System.String,System.String,System.Action{System.Data.Common.DbDataAdapter})">
+            <summary>
+            创建数据库操作对象
+            </summary>
+            <param name="connectionString"></param>
+            <param name="providerName"></param>
+            <param name="CustomerDbDataAdapter"></param>
+            <returns></returns>
         </member>
         <member name="M:GZDBHelper.DatabaseFactory.CreateDatabase(System.String,System.Data.Common.DbProviderFactory,System.Action{System.Data.Common.DbDataAdapter})">
             <summary>
@@ -1016,7 +1069,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:GZDBHelper.IDatabase.CommandTimeout">
+        <member name="P:GZDBHelper.IDatabase.CommandTimeOut">
             <summary>
             命令超时时间设置，单位毫秒
             </summary>
