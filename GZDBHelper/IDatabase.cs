@@ -23,7 +23,7 @@ namespace GZDBHelper
         /// <summary>
         /// 命令超时时间设置，单位毫秒
         /// </summary>
-        int CommandTimeout { get; set; }
+        int CommandTimeOut { get; set; }
 
 
       

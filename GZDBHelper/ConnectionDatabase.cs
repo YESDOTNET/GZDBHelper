@@ -13,7 +13,6 @@ namespace GZDBHelper
         private readonly string _ConnectionString;
         private readonly DbProviderFactory _ProviderFactory;
 
-        private int _commandtimeout = 30;
         /// <summary>
         /// 获得数据库连接字符串
         /// </summary>
@@ -30,13 +29,13 @@ namespace GZDBHelper
         }
 
         /// <summary>
-        /// 执行超时
+        /// 执行超时，单位秒，默认30秒
         /// </summary>
-        public int CommandTimeout
-        {
-            get { return _commandtimeout; }
-            set { _commandtimeout = value; }
-        }
+        public int CommandTimeOut { get; set; } = 30;
+        /// <summary>
+        /// 连接超时，单位秒，默认15秒
+        /// </summary>
+        public int ConnectionTimeOut { get; set; } = 15;
 
         private Action<DbDataAdapter> CustomerDbDataAdapter;
 
@@ -76,6 +75,7 @@ namespace GZDBHelper
             try
             {
                 var connection = _ProviderFactory.CreateConnection();
+                //connection.ConnectionTimeout = this.CommandTimeOut;
                 connection.ConnectionString = _ConnectionString;
                 connection.Open();
                 return connection;
@@ -91,22 +91,23 @@ namespace GZDBHelper
         /// <summary>
         /// 获得数据库操作命令对象
         /// </summary>
-        /// <param name="cmd"></param>
+        /// <param name="conn"></param>
         /// <returns></returns>
         private CommandDatabase GetCommandDataBase(DbConnection conn)
         {
-            var c = new CommandDatabase(_ProviderFactory, conn, CommandTimeout, CustomerDbDataAdapter);
+            var c = new CommandDatabase(_ProviderFactory, conn, CommandTimeOut, CustomerDbDataAdapter);
             return c;
         }
 
         /// <summary>
         /// 获得数据库操作命令对象
         /// </summary>
-        /// <param name="cmd"></param>
+        /// <param name="conn"></param>
+        /// <param name="trans"></param>
         /// <returns></returns>
         private CommandDatabase GetCommandDataBase(DbConnection conn, DbTransaction trans)
         {
-            var c = new CommandDatabase(_ProviderFactory, trans, CommandTimeout, CustomerDbDataAdapter);
+            var c = new CommandDatabase(_ProviderFactory, trans, CommandTimeOut, CustomerDbDataAdapter);
             return c;
         }
 

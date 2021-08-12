@@ -37,7 +37,7 @@ namespace GZDBHelper
         /// <summary>
         /// 命令i超时时间
         /// </summary>
-        public int CommandTimeout
+        public int CommandTimeOut
         {
             get { return _commandtimeout; }
             set { _commandtimeout = value; }
@@ -60,7 +60,7 @@ namespace GZDBHelper
             _ProviderFactory = ProviderFactory;
             //Command = cmd;
             Conn = conn;
-            CommandTimeout = commandTimeout;
+            CommandTimeOut = commandTimeout;
             CustomerDbDataAdapter = cAdapter;
         }
 
@@ -74,7 +74,7 @@ namespace GZDBHelper
             _ProviderFactory = ProviderFactory;
             //Command = cmd;
             Trans = trans;
-            CommandTimeout = commandTimeout;
+            CommandTimeOut = commandTimeout;
             CustomerDbDataAdapter = cAdapter;
         }
 
@@ -97,7 +97,7 @@ namespace GZDBHelper
             }
             Command.CommandType = CommandType;
             Command.CommandText = sql;
-            Command.CommandTimeout = CommandTimeout;
+            Command.CommandTimeout = CommandTimeOut;
             //Command.SetParameters(parameters);
             if (parameters != null)
                 SetParameters(Command, parameters);
