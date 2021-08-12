@@ -95,6 +95,20 @@ namespace GZDBHelper
             OracleParameter parm = new OracleParameter(parameterName, value);
             Params.Add(parm);
         }
+
+        /// <summary>
+        /// 添加参数
+        /// </summary>
+        /// <param name="parameterName"></param>
+        /// <param name="value"></param>
+        /// <param name="direction"></param>
+        public void AddParameter(string parameterName, object value, ParameterDirection direction)
+        {
+            OracleParameter parm = new OracleParameter(parameterName, value);
+            parm.Direction = direction;
+            Params.Add(parm);
+        }
+
         /// <summary>
         /// 添加参数
         /// </summary>

@@ -58,7 +58,7 @@
             <param name="table"></param>
             <param name="batchSize"></param>
         </member>
-        <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Collections.Generic.List{Microsoft.Data.SqlClient.SqlBulkCopyColumnMapping},System.Int32)">
+        <member name="M:GZDBHelper.Extensions.BulkCopy(GZDBHelper.IDatabase,System.Data.DataTable,System.Collections.Generic.List{System.Data.SqlClient.SqlBulkCopyColumnMapping},System.Int32)">
             <summary>
             SQL Server 批量插入数据
             </summary>
@@ -335,6 +335,14 @@
             </summary>
             <param name="parameterName"></param>
             <param name="value"></param>
+        </member>
+        <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+            <param name="direction"></param>
         </member>
         <member name="M:GZDBHelper.SqlParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Object)">
             <summary>

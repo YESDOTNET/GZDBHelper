@@ -99,6 +99,19 @@ namespace GZDBHelper.MSSQL
         /// 添加参数
         /// </summary>
         /// <param name="parameterName"></param>
+        /// <param name="value"></param>
+        /// <param name="direction"></param>
+        public void AddParameter(string parameterName, object value, ParameterDirection direction)
+        {
+            SQLiteParameter parm = new SQLiteParameter(parameterName, value);
+            parm.Direction = direction;
+            Params.Add(parm);
+        }
+
+        /// <summary>
+        /// 添加参数
+        /// </summary>
+        /// <param name="parameterName"></param>
         /// <param name="dbType"></param>
         /// <param name="value"></param>
         public void AddParameter(string parameterName, SqlDbType dbType, object value)

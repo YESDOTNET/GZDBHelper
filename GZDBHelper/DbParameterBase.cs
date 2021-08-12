@@ -92,7 +92,18 @@ namespace GZDBHelper
                 return default(T);
             }
         }
-
-
+        /// <summary>
+        /// 添加参数
+        /// </summary>
+        /// <param name="parameterName"></param>
+        /// <param name="value"></param>
+        public abstract void AddParameter(string parameterName, object value);
+        /// <summary>
+        /// 添加参数
+        /// </summary>
+        /// <param name="parameterName"></param>
+        /// <param name="value"></param>
+        /// <param name="direction"></param>
+        public abstract void AddParameter(string parameterName, object value, ParameterDirection direction);
     }
 }

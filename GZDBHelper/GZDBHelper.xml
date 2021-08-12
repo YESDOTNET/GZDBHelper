@@ -405,14 +405,6 @@
             执行超时
             </summary>
         </member>
-        <member name="M:GZDBHelper.ConnectionDatabase.#ctor(System.String,System.String,System.Action{System.Data.Common.DbDataAdapter})">
-            <summary>
-            构造函数
-            </summary>
-            <param name="connectionString">数据库连接字符串</param>
-            <param name="providerName">指定提供程序名称的 System.Data.Common.DbProviderFactory 的一个实例</param>
-            /// <param name="cAdapter"></param>
-        </member>
         <member name="M:GZDBHelper.ConnectionDatabase.#ctor(System.Data.Common.DbProviderFactory,System.String,System.Action{System.Data.Common.DbDataAdapter})">
             <summary>
             构造函数
@@ -795,36 +787,6 @@
             数据库链接字符串生成类
             </summary>
         </member>
-        <member name="T:GZDBHelper.ConnectionStrings.ProviderNames">
-            <summary>
-            参考Provider名称
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForAccess">
-            <summary>
-            Access ProviderName
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForSqlite">
-            <summary>
-            Sqlite ProviderName
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForOracle">
-            <summary>
-            Oracle ProviderName
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMSSql">
-            <summary>
-            MSSql ProviderName
-            </summary>
-        </member>
-        <member name="F:GZDBHelper.ConnectionStrings.ProviderNames.ProviderNameForMySql">
-            <summary>
-            MySQL ProviderName
-            </summary>
-        </member>
         <member name="M:GZDBHelper.ConnectionStrings.BuildMSSQLConnectionString(System.String,System.String,System.String,System.String)">
             <summary>
             生成MSSQL链接字符串  Server = {0};Database = {1};User ID = {2};Password = {3};Trusted_Connection = False
@@ -925,15 +887,6 @@
             数据库操作对象生成工厂
             </summary>
         </member>
-        <member name="M:GZDBHelper.DatabaseFactory.CreateDatabase(System.String,System.String,System.Action{System.Data.Common.DbDataAdapter})">
-            <summary>
-            创建数据库操作对象
-            </summary>
-            <param name="connectionString"></param>
-            <param name="providerName"></param>
-            <param name="CustomerDbDataAdapter"></param>
-            <returns></returns>
-        </member>
         <member name="M:GZDBHelper.DatabaseFactory.CreateDatabase(System.String,System.Data.Common.DbProviderFactory,System.Action{System.Data.Common.DbDataAdapter})">
             <summary>
             创建数据库对象
@@ -1021,6 +974,21 @@
             <typeparam name="T">返回类型</typeparam>
             <param name="ParameterName">参数名</param>
             <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.DbParameterBase.AddParameter(System.String,System.Object)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GZDBHelper.DbParameterBase.AddParameter(System.String,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+            <param name="direction"></param>
         </member>
         <member name="T:GZDBHelper.IDatabase">
             <summary>
@@ -1424,6 +1392,21 @@
             返回键值对，参数名和参数值
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:GZDBHelper.IDbParms.AddParameter(System.String,System.Object)">
+            <summary>
+            添加命令参数
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="value">参数值</param>
+        </member>
+        <member name="M:GZDBHelper.IDbParms.AddParameter(System.String,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            添加命令参数
+            </summary>
+            <param name="parameterName">参数名称</param>
+            <param name="value">参数值</param>
+            <param name="direction">参数Direction</param>
         </member>
         <member name="T:GZDBHelper.IProcedure">
             <summary>

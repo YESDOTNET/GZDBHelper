@@ -53,6 +53,14 @@
             <param name="parameterName"></param>
             <param name="value"></param>
         </member>
+        <member name="M:GZDBHelper.OracleParameterProvider.AddParameter(System.String,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            添加参数
+            </summary>
+            <param name="parameterName"></param>
+            <param name="value"></param>
+            <param name="direction"></param>
+        </member>
         <member name="M:GZDBHelper.OracleParameterProvider.AddParameter(System.String,System.Data.SqlDbType,System.Object)">
             <summary>
             添加参数
