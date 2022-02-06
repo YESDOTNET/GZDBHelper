@@ -4,6 +4,18 @@
         <name>GZDBHelper.SQLite</name>
     </assembly>
     <members>
+        <member name="T:GZDBHelper.Extensions">
+            <summary>
+            扩展
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.Extensions.GetSQLiteTools(GZDBHelper.IDatabase)">
+            <summary>
+            获得 MSSQL 基本工具
+            </summary>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
         <member name="T:GZDBHelper.SQLite.Model.ModelTable">
             <summary>
             数据库对象模型
