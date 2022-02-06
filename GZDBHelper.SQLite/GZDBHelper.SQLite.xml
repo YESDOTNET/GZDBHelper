@@ -4,6 +4,11 @@
         <name>GZDBHelper.SQLite</name>
     </assembly>
     <members>
+        <member name="T:GZDBHelper.SQLite.Model.ModelTable">
+            <summary>
+            数据库对象模型
+            </summary>
+        </member>
         <member name="T:GZDBHelper.MSSQL.SQLiteParameterProvider">
             <summary>
             查询参数生成基类
@@ -97,6 +102,23 @@
             <param name="size"></param>
             <param name="value"></param>
             <param name="sourceColumn"></param>
+        </member>
+        <member name="T:GZDBHelper.SQLiteTools">
+            <summary>
+            MSSQL 数据库 集成
+            </summary>
+        </member>
+        <member name="M:GZDBHelper.SQLiteTools.#ctor(GZDBHelper.IDatabase)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="_db"></param>
+        </member>
+        <member name="M:GZDBHelper.SQLiteTools.GetTables">
+            <summary>
+            获得数据库所有表结构
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>
